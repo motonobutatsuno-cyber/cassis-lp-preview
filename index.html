@@ -1,5 +1,549 @@
-<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>わたしのカシス LP 確認用</title>
-<body style="font:16px/1.9 sans-serif;padding:16px"><h3>わたしのカシス LP 確認用（未公開・確認用）</h3>
-<p><a href="a.html">版A（広告・SNSから）</a></p><p><a href="b.html">版B（検索広告から）</a></p><p>テキスト版（AI用）：<a href="a.txt">版A</a> <a href="b.txt">版B</a></p>
-<p>スマホ幅の画像：版A <a href="review/a_1.png">1</a> <a href="review/a_2.png">2</a> <a href="review/a_3.png">3</a> <a href="review/a_4.png">4</a> <a href="review/a_5.png">5</a> <a href="review/a_6.png">6</a> <a href="review/a_7.png">7</a> <a href="review/a_8.png">8</a> <a href="review/a_9.png">9</a> <a href="review/a_10.png">10</a></p>
-<p>版B <a href="review/b_1.png">1</a> <a href="review/b_2.png">2</a> <a href="review/b_3.png">3</a> <a href="review/b_4.png">4</a> <a href="review/b_5.png">5</a> <a href="review/b_6.png">6</a> <a href="review/b_7.png">7</a> <a href="review/b_8.png">8</a> <a href="review/b_9.png">9</a> <a href="review/b_10.png">10</a></p>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>わたしのカシス LP 版A 完成プレビュー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      kinari:'#FAF6EF', deep:'#34194F', mid:'#4B2E6B', pale:'#F4EDFA',
+      gold:'#FFE08A', gold2:'#D4A017', lutein:'#F2B705'
+    },
+    fontFamily: {
+      mincho:['"Shippori Mincho B1"','serif'],
+      gothic:['"Noto Sans JP"','sans-serif']
+    }
+  }}
+}
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#E9E9EC;font-family:'Noto Sans JP',sans-serif;color:#2b2233;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.mincho{font-family:'Shippori Mincho B1',serif}
+  #lp{max-width:390px;margin:0 auto;background:#FAF6EF;position:relative;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.12);padding-bottom:96px}
+  /* 写真プレースホルダ */
+  .ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#d9cde8,#f1e3b8)}
+  .ph img{display:block;width:100%;height:100%;object-fit:cover}
+  .ph-badge{position:absolute;left:8px;bottom:8px;z-index:5;background:rgba(0,0,0,.72);color:#fff;font-size:10px;line-height:1.4;padding:3px 8px;border-radius:999px;letter-spacing:.02em}
+  /* CTA */
+  .cta{display:block;text-align:center;font-weight:700;color:#34194F;background:linear-gradient(180deg,#FFE9A8 0%,#FFE08A 45%,#D4A017 140%);border-radius:999px;padding:16px 12px;box-shadow:0 4px 0 #B5870F,0 8px 18px rgba(212,160,23,.35);transition:transform .15s, box-shadow .15s}
+  .cta:active{transform:translateY(3px);box-shadow:0 1px 0 #B5870F}
+  .cta small{display:block;font-size:11px;font-weight:500;opacity:.8}
+  /* カルーセル */
+  .snap{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .snap::-webkit-scrollbar{display:none}
+  .snap>*{scroll-snap-align:center;flex:0 0 78%}
+  /* カレンダー */
+  .cal{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(5,1fr);gap:6px}
+  .cal .cell{aspect-ratio:1/1;background:#fff;border:1px solid #e6dcc9;border-radius:8px;position:relative;display:flex;align-items:flex-start;justify-content:flex-start;padding:3px 5px;font-size:10px;color:#9a8f80}
+  .cal .cell .seal{position:absolute;inset:0;margin:auto;width:70%;height:70%;border-radius:999px;background:radial-gradient(circle at 35% 30%,#7a4aa6,#4B2E6B 60%,#34194F);box-shadow:inset 0 -2px 3px rgba(0,0,0,.25),0 1px 2px rgba(52,25,79,.3);display:flex;align-items:center;justify-content:center;color:#FFE08A;font-size:12px;font-weight:700}
+  .cal .cell.done{border-color:#cdb8e3;background:#fbf8fe}
+  .cal .cell.done .n{color:#4B2E6B;font-weight:700;z-index:2}
+  .cal .cell .n{z-index:2}
+  /* アコーディオン */
+  .acc-panel{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .acc-item.open .acc-panel{max-height:700px}
+  .acc-item .chev{transition:transform .25s}
+  .acc-item.open .chev{transform:rotate(180deg)}
+  /* タイムライン */
+  .tl{position:relative}
+  .tl::before{content:"";position:absolute;left:19px;top:14px;bottom:14px;width:2px;background:repeating-linear-gradient(180deg,#b9a3d1 0 6px,transparent 6px 11px)}
+  /* バーアニメ */
+  .bar{width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+  .in .bar{width:var(--w)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s, transform .7s}
+  .reveal.in{opacity:1;transform:none}
+  table{border-collapse:collapse}
+  @media (prefers-reduced-motion:reduce){.reveal,.bar,.acc-panel{transition:none}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="lp">
+
+<!-- ===================== セクション0: FV ===================== -->
+<section id="fv" class="relative text-white" style="min-height:760px;background:linear-gradient(160deg,#6a4a2b,#c9a56a)">
+  <div class="ph absolute inset-0" style="background:linear-gradient(160deg,#6a4a2b,#c9a56a)">
+    <img src="./assets/images/scene_03_tea.webp" data-fb="./img/A-02-3.jpg" alt="夕方、ガラスのポットからお茶を注ぐ手元" onerror="imgFb(this)">
+  </div>
+  <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(52,25,79,.15) 0%,rgba(52,25,79,.25) 30%,rgba(52,25,79,.88) 66%,#34194F 100%)"></div>
+  <span class="ph-badge" style="top:10px;bottom:auto;left:10px">※本番時に日本人向け実写素材へ差し替え</span>
+
+  <div class="relative z-10 px-5 pt-12 pb-8 flex flex-col" style="min-height:760px">
+    <p class="text-[10px] tracking-widest opacity-90">【広告】株式会社Univein</p>
+    <p class="mt-2 text-xs tracking-[.3em] text-gold">わたしのカシス</p>
+    <div class="flex-1"></div>
+    <h1 class="text-[30px] leading-[1.5] font-extrabold" style="text-shadow:0 2px 14px rgba(0,0,0,.45)">
+      夕方5時、<br>まだ視界は<br>澄んでいる。
+    </h1>
+    <p class="mt-3 text-[13px] leading-7 opacity-95">ルテイン10mg＋カシス由来アントシアニン50mg。<br>1日1粒の、自分のための習慣。</p>
+
+    <div class="mt-5 rounded-2xl p-4 text-deep" style="background:linear-gradient(180deg,#fffdf6,#fff6d8);border:1.5px solid #D4A017;box-shadow:0 10px 30px rgba(0,0,0,.35)">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-bold bg-deep text-gold rounded-full px-2.5 py-1">初回限定</span>
+        <span class="text-[11px]">定期購入｜1袋30粒（30日分）</span>
+      </div>
+      <p class="mt-2 flex items-end gap-1"><span class="mincho text-[44px] leading-none font-extrabold">1,980</span><span class="text-lg font-bold pb-1">円</span><span class="text-[11px] pb-1.5 ml-1">（税込・送料無料）</span></p>
+      <p class="text-[11px] mt-1 text-mid">2回目以降は30日ごとに1袋 3,824円（税込）・送料無料</p>
+      <a href="#offer" class="cta mt-3 text-[16px]">初回1,980円で始める<small>回数の縛りなし／初回は到着後30日以内なら全額返金</small></a>
+    </div>
+
+    <ul class="mt-4 grid grid-cols-2 gap-2 text-[11px] font-medium">
+      <li class="flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur px-2.5 py-2 border border-white/20"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFE08A" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>国内GMP認定工場</li>
+      <li class="flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur px-2.5 py-2 border border-white/20"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFE08A" stroke-width="2"><path d="M12 3v18M8 7h8M7 21h10M12 12a4 4 0 100-8"/></svg>眼科専門医共同開発</li>
+      <li class="flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur px-2.5 py-2 border border-white/20"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFE08A" stroke-width="2"><circle cx="12" cy="13" r="7"/><path d="M12 6c0-2 1-3 3-3"/></svg>NZ産カシス100%</li>
+      <li class="flex items-center gap-2 rounded-lg bg-white/10 backdrop-blur px-2.5 py-2 border border-white/20"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFE08A" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg>定期縛りなし</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== セクション1: 共感・問いかけ ===================== -->
+<section class="px-5 py-14 bg-kinari">
+  <p class="text-center text-[11px] tracking-[.3em] text-mid">PROLOGUE</p>
+  <h2 class="mt-3 text-center text-[24px] leading-[1.6] font-bold text-deep">夕方の自分に、<br>少しだけ問いかけてみる。</h2>
+  <p class="mt-4 text-center text-[13px] leading-7 text-[#5b4d6a]">一日のおわり、<br>画面や文字を見つめた時間を思い出してみてください。</p>
+
+  <div class="mt-7 grid grid-cols-2 gap-3 reveal">
+    <div class="rounded-2xl bg-white p-4 border border-[#eadff5] shadow-sm">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4B2E6B" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg>
+      <p class="mt-2 text-[13px] font-bold text-deep mincho">スマホ</p>
+      <p class="text-[12px] leading-6 text-[#6b5d7a] mt-1">通勤も、寝る前も。<br>気づけばずっと手の中。</p>
+    </div>
+    <div class="rounded-2xl bg-white p-4 border border-[#eadff5] shadow-sm">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4B2E6B" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 21h8M12 16v5"/></svg>
+      <p class="mt-2 text-[13px] font-bold text-deep mincho">PC</p>
+      <p class="text-[12px] leading-6 text-[#6b5d7a] mt-1">会議、資料、メール。<br>夕方まで画面とにらめっこ。</p>
+    </div>
+    <div class="rounded-2xl bg-white p-4 border border-[#eadff5] shadow-sm">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4B2E6B" stroke-width="1.6"><path d="M3 5.5C6 4 9 4 12 6c3-2 6-2 9-.5V19c-3-1.5-6-1.5-9 .5-3-2-6-2-9-.5z"/><path d="M12 6v13.5"/></svg>
+      <p class="mt-2 text-[13px] font-bold text-deep mincho">読書</p>
+      <p class="text-[12px] leading-6 text-[#6b5d7a] mt-1">好きな本を、夜に少し。<br>この時間は手放したくない。</p>
+    </div>
+    <div class="rounded-2xl bg-white p-4 border border-[#eadff5] shadow-sm">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4B2E6B" stroke-width="1.6"><path d="M4 14l1.8-5.2A2 2 0 017.7 7.5h8.6a2 2 0 011.9 1.3L20 14M3 14h18v4H3z"/><circle cx="7.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg>
+      <p class="mt-2 text-[13px] font-bold text-deep mincho">運転</p>
+      <p class="text-[12px] leading-6 text-[#6b5d7a] mt-1">夕暮れの帰り道。<br>安心して前を向いていたい。</p>
+    </div>
+  </div>
+
+  <!-- スクリーンタイム棒グラフ -->
+  <div class="mt-9 rounded-2xl bg-white border border-[#eadff5] p-5 shadow-sm reveal" id="screen">
+    <p class="text-center text-[11px] tracking-widest text-mid">1日の画面を見る時間（目安）</p>
+    <p class="text-center mincho text-[17px] font-bold text-deep mt-1 leading-7">40代は、20代の<span class="text-gold2 text-[22px]"> 約2倍 </span>の時間<br>画面と向き合っている。</p>
+    <div class="mt-5 space-y-4">
+      <div>
+        <div class="flex justify-between text-[12px] font-medium"><span>40代</span><span class="mincho text-[17px] font-bold text-deep">150<span class="text-[11px] font-normal ml-0.5">分</span></span></div>
+        <div class="h-7 rounded-full bg-[#efe7f7] overflow-hidden mt-1"><div class="bar h-full rounded-full" style="--w:100%;background:linear-gradient(90deg,#4B2E6B,#34194F)"></div></div>
+      </div>
+      <div>
+        <div class="flex justify-between text-[12px] font-medium"><span>20代</span><span class="mincho text-[17px] font-bold text-[#8d78a6]">70<span class="text-[11px] font-normal ml-0.5">分</span></span></div>
+        <div class="h-7 rounded-full bg-[#efe7f7] overflow-hidden mt-1"><div class="bar h-full rounded-full" style="--w:46.7%;background:linear-gradient(90deg,#b7a2cf,#9a82b9)"></div></div>
+      </div>
+    </div>
+    <p class="mt-3 text-[10px] leading-5 text-[#8b7f98]">※数値はイメージ表現です。【仮】出典・調査年は公開前に確定して記載。</p>
+  </div>
+
+  <p class="mt-9 text-center text-[14px] leading-8 text-deep mincho font-bold">これからも、大切にしたい時間がある。<br>そのために、毎日にできる小さな習慣を。</p>
+</section>
+
+<!-- ===================== セクション2: 楽しみたい時間（カルーセル） ===================== -->
+<section class="py-14 bg-pale">
+  <div class="px-5">
+    <p class="text-center text-[11px] tracking-[.3em] text-mid">MOMENTS</p>
+    <h2 class="mt-3 text-center text-[22px] leading-[1.6] font-bold text-deep">これからも、<br>楽しみたい時間。</h2>
+    <p class="mt-3 text-center text-[12px] text-[#6b5d7a]">← 横にスワイプしてご覧ください →</p>
+  </div>
+  <div class="snap mt-6 flex gap-4 overflow-x-auto px-[11%] pb-4" id="carousel">
+    <article class="rounded-2xl bg-white shadow-md overflow-hidden">
+      <div class="ph h-[260px]"><img src="./assets/images/scene_01_book.webp" data-fb="./img/A-02-1.jpg" alt="夜、ひざの上で本を開く手元" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
+      <div class="p-4"><p class="text-[11px] text-gold2 font-bold tracking-widest">NIGHT</p><h3 class="mt-1 text-[16px] font-bold text-deep">夜、好きな本を開く。</h3><p class="mt-1 text-[12px] leading-6 text-[#6b5d7a]">ページをめくる、ひとりの静かな時間。</p></div>
+    </article>
+    <article class="rounded-2xl bg-white shadow-md overflow-hidden">
+      <div class="ph h-[260px]"><img src="./assets/images/scene_02_avenue.webp" data-fb="./img/A-02-2.jpg" alt="休日、並木道を歩く後ろ姿" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
+      <div class="p-4"><p class="text-[11px] text-gold2 font-bold tracking-widest">HOLIDAY</p><h3 class="mt-1 text-[16px] font-bold text-deep">休日、並木道を歩く。</h3><p class="mt-1 text-[12px] leading-6 text-[#6b5d7a]">気の向くまま、季節の景色を眺めて。</p></div>
+    </article>
+    <article class="rounded-2xl bg-white shadow-md overflow-hidden">
+      <div class="ph h-[260px]"><img src="./assets/images/scene_03_tea.webp" data-fb="./img/A-02-3.jpg" alt="ガラスのポットからお茶を注ぐ手元" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
+      <div class="p-4"><p class="text-[11px] text-gold2 font-bold tracking-widest">TEA TIME</p><h3 class="mt-1 text-[16px] font-bold text-deep">帰り道に、お茶を飲む。</h3><p class="mt-1 text-[12px] leading-6 text-[#6b5d7a]">誰かと笑う時間も、ひとりの時間も。</p></div>
+    </article>
+    <article class="rounded-2xl bg-white shadow-md overflow-hidden">
+      <div class="ph h-[260px]"><img src="./assets/images/scene_04_morning.webp" data-fb="./img/A-01.jpg" alt="朝のテーブルでマグカップを持つ後ろ姿" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
+      <div class="p-4"><p class="text-[11px] text-gold2 font-bold tracking-widest">MORNING</p><h3 class="mt-1 text-[16px] font-bold text-deep">朝、1日の始まりに。</h3><p class="mt-1 text-[12px] leading-6 text-[#6b5d7a]">マグカップのそばに、1粒の習慣を。</p></div>
+    </article>
+  </div>
+  <div class="flex justify-center gap-1.5" id="dots" aria-hidden="true"></div>
+</section>
+
+<!-- ===================== セクション3: 成分と技術 ===================== -->
+<section class="px-5 py-14 bg-kinari">
+  <p class="text-center text-[11px] tracking-[.3em] text-mid">INGREDIENTS</p>
+  <h2 class="mt-3 text-center text-[22px] leading-[1.6] font-bold text-deep">黄と紫を、<br>1粒に。</h2>
+
+  <!-- ルテイン＋カシス＝1粒 -->
+  <div class="mt-7 rounded-2xl bg-white border border-[#eadff5] p-5 reveal">
+    <svg viewBox="0 0 340 140" class="w-full" role="img" aria-label="ルテイン（黄）とカシス（紫）で1粒">
+      <defs>
+        <radialGradient id="gY" cx="35%" cy="30%"><stop offset="0" stop-color="#FFE27A"/><stop offset="1" stop-color="#F2B705"/></radialGradient>
+        <radialGradient id="gP" cx="35%" cy="30%"><stop offset="0" stop-color="#8a5cb8"/><stop offset="1" stop-color="#34194F"/></radialGradient>
+        <clipPath id="capClip"><rect x="228" y="48" width="100" height="44" rx="22"/></clipPath>
+      </defs>
+      <circle cx="42" cy="62" r="34" fill="url(#gY)"/>
+      <text x="42" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#4a3300">ルテイン</text>
+      <text x="42" y="118" text-anchor="middle" font-size="11" fill="#6b5d7a">黄の色素</text>
+      <text x="92" y="68" text-anchor="middle" font-size="26" font-weight="700" fill="#D4A017">＋</text>
+      <circle cx="142" cy="62" r="34" fill="url(#gP)"/>
+      <text x="142" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#FFE08A">カシス</text>
+      <text x="142" y="118" text-anchor="middle" font-size="11" fill="#6b5d7a">紫の色素</text>
+      <text x="198" y="68" text-anchor="middle" font-size="26" font-weight="700" fill="#D4A017">＝</text>
+      <g clip-path="url(#capClip)">
+        <rect x="228" y="48" width="50" height="44" fill="url(#gY)"/>
+        <rect x="278" y="48" width="50" height="44" fill="url(#gP)"/>
+        <rect x="228" y="48" width="100" height="14" fill="#fff" opacity=".22"/>
+      </g>
+      <rect x="228" y="48" width="100" height="44" rx="22" fill="none" stroke="#34194F" stroke-opacity=".25"/>
+      <text x="278" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="#34194F">1粒</text>
+    </svg>
+    <div class="grid grid-cols-2 gap-3 mt-4 text-[12px] leading-6">
+      <div class="rounded-xl p-3" style="background:#FFF6D6"><p class="font-bold" style="color:#8a6500">ルテイン 10mg</p><p class="text-[#6b5d7a]">緑黄色野菜などに含まれる黄色の色素。リポソームルテインを使用。</p></div>
+      <div class="rounded-xl p-3 bg-pale"><p class="font-bold text-mid">アントシアニン 50mg</p><p class="text-[#6b5d7a]">カシスの深い紫のもとになっている色素。</p></div>
+    </div>
+    <p class="mt-2 text-[10px] text-[#8b7f98]">※1粒（1日分）あたり。ルテインはルテインとして。【仮】完成品含量は分析値確定後に確認。</p>
+  </div>
+
+  <!-- リポソーム二重膜 -->
+  <div class="mt-6 rounded-2xl p-5 text-white reveal" style="background:linear-gradient(160deg,#34194F,#4B2E6B)">
+    <p class="text-[11px] tracking-widest text-gold">LIPOSOME</p>
+    <h3 class="mt-1 text-[18px] font-bold leading-7">ルテインを、<br>二重の膜で包んだ原料。</h3>
+    <div class="mt-3 flex justify-center">
+      <svg id="lipo" viewBox="0 0 260 260" width="250" height="250" role="img" aria-label="リポソームの二重膜構造の模式図"></svg>
+    </div>
+    <ul class="mt-2 text-[12px] leading-6 space-y-1.5">
+      <li class="flex gap-2"><span class="mt-1.5 w-2.5 h-2.5 rounded-full bg-lutein shrink-0"></span>中心：ルテイン</li>
+      <li class="flex gap-2"><span class="mt-1.5 w-2.5 h-2.5 rounded-full bg-gold shrink-0"></span>外側と内側の膜：リン脂質の二重膜（親水性の頭部と、油になじむ尾部）</li>
+    </ul>
+    <p class="mt-3 text-[10px] leading-5 opacity-70">※模式図（イメージ）です。実際の大きさ・構造を正確に表したものではなく、体内での働きや吸収性を示すものでもありません。</p>
+  </div>
+</section>
+
+<!-- ===================== セクション4: 1粒の中身 ＆ 監修 ===================== -->
+<section class="px-5 py-14 bg-pale">
+  <p class="text-center text-[11px] tracking-[.3em] text-mid">ONE CAPSULE</p>
+  <h2 class="mt-3 text-center text-[22px] leading-[1.6] font-bold text-deep">1日1粒。<br>それだけで、いい。</h2>
+
+  <div class="mt-6 rounded-2xl bg-white p-5 border border-[#eadff5] reveal">
+    <div class="flex items-center gap-4">
+      <svg width="86" height="86" viewBox="0 0 86 86" aria-hidden="true"><rect x="8" y="30" width="70" height="26" rx="13" fill="#F2B705" transform="rotate(-25 43 43)"/><path d="M43 30a13 13 0 000 26h22a13 13 0 000-26z" fill="#34194F" transform="rotate(-25 43 43) translate(-6 0)"/></svg>
+      <div><p class="mincho text-[20px] font-bold text-deep leading-7">1日1粒<br><span class="text-[13px] font-medium">水またはぬるま湯で</span></p></div>
+    </div>
+    <ul class="mt-4 grid grid-cols-3 gap-2 text-center text-[11px] leading-5">
+      <li class="rounded-xl bg-kinari py-3"><b class="block text-deep text-[13px]">味はしない</b>カプセル</li>
+      <li class="rounded-xl bg-kinari py-3"><b class="block text-deep text-[13px]">いつでも</b>タイミング自由</li>
+      <li class="rounded-xl bg-kinari py-3"><b class="block text-deep text-[13px]">植物由来</b>HPMCカプセル</li>
+    </ul>
+  </div>
+
+  <h3 class="mt-9 text-center text-[17px] font-bold text-deep">この1粒をつくった人</h3>
+  <div class="mt-4 space-y-4">
+    <article class="rounded-2xl bg-white border border-[#eadff5] overflow-hidden flex reveal">
+      <div class="ph w-[118px] shrink-0"><img src="./img/matsuoka-ishi.png" alt="監修 眼科専門医" onerror="this.style.display='none'"><span class="ph-badge" style="left:4px;right:4px;bottom:4px;border-radius:8px;text-align:center">※掲載写真は最終確認待ち</span></div>
+      <div class="p-4">
+        <p class="text-[10px] font-bold text-gold2 tracking-widest">SUPERVISOR</p>
+        <p class="mincho text-[15px] font-bold text-deep mt-0.5">眼科専門医【実名】</p>
+        <p class="text-[11px] text-mid">処方設計を監修【肩書・実績は確定後に記載】</p>
+        <p class="mt-2 text-[12px] leading-6 text-[#6b5d7a]">毎日続けやすい1日1粒という設計を、専門医の視点で確認しました。</p>
+      </div>
+    </article>
+    <article class="rounded-2xl bg-white border border-[#eadff5] overflow-hidden flex reveal">
+      <div class="ph w-[118px] shrink-0"><img src="./img/ceo-tatsuno.png" alt="商品開発者 辰野元信" onerror="this.style.display='none'"><span class="ph-badge" style="left:4px;right:4px;bottom:4px;border-radius:8px;text-align:center">※掲載写真は最終確認待ち</span></div>
+      <div class="p-4">
+        <p class="text-[10px] font-bold text-gold2 tracking-widest">DEVELOPER</p>
+        <p class="mincho text-[15px] font-bold text-deep mt-0.5">辰野 元信</p>
+        <p class="text-[11px] text-mid">株式会社Univein 代表取締役／商品開発</p>
+        <p class="mt-2 text-[12px] leading-6 text-[#6b5d7a]">2017年、ニュージーランドの友人からの一通のLINEが、カシスとの出会いでした。【仮・最終確認待ち】</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== セクション5: 続け方（30日カレンダー） ===================== -->
+<section class="px-5 py-14 bg-kinari">
+  <p class="text-center text-[11px] tracking-[.3em] text-mid">30 DAYS</p>
+  <h2 class="mt-3 text-center text-[22px] leading-[1.6] font-bold text-deep">まずは1袋、<br>30日間の記録から。</h2>
+  <p class="mt-4 text-center text-[13px] leading-7 text-[#5b4d6a]">飲んだ日に、紫のシールを1枚。<br>袋には30日カレンダーとシールを同梱します【仮】。</p>
+
+  <div class="mt-6 rounded-2xl bg-white border border-[#eadff5] p-4 shadow-sm reveal">
+    <div class="flex items-center justify-between mb-3">
+      <span class="mincho text-[14px] font-bold text-deep">30日カレンダー</span>
+      <span class="text-[11px] text-mid"><b id="doneCount" class="mincho text-[18px]">5</b> / 30日</span>
+    </div>
+    <div class="cal" id="calendar" aria-label="30日カレンダー（5行×6列）"></div>
+    <p class="mt-3 text-[11px] text-[#8b7f98]">1〜5日目：達成シール（例） ／ 6日目以降：これから貼っていきます</p>
+  </div>
+
+  <div class="mt-5 rounded-xl bg-pale p-4 text-[12.5px] leading-7 text-[#4b3b5c]">
+    <p><b class="text-deep">始める日は、届いてから自分で決めて。</b><br>朝のコーヒーのそば、夜スマホを置く前、歯みがきのあと。いつもの隣に袋を置いて、1日1粒。</p>
+    <p class="mt-2">1袋は30粒＝30日分。定期購入は30日ごとに次の1袋をお届けします。</p>
+  </div>
+</section>
+
+<!-- ===================== セクション6: 価格と価値（比較表） ===================== -->
+<section class="px-5 py-14 bg-pale">
+  <p class="text-center text-[11px] tracking-[.3em] text-mid">VALUE</p>
+  <h2 class="mt-3 text-center text-[22px] leading-[1.6] font-bold text-deep">3,824円の、中身。</h2>
+  <p class="mt-3 text-center text-[12.5px] leading-7 text-[#5b4d6a]">2回目以降の1袋（30粒・税込）の内訳をお見せします。<br>1日あたり、約127円。</p>
+
+  <div class="mt-6 rounded-2xl bg-white border border-[#eadff5] p-5 reveal" id="cost">
+    <div class="flex h-9 rounded-lg overflow-hidden text-[10px] font-bold text-white">
+      <div class="bar flex items-center justify-center" style="--w:34%;background:#34194F">原料</div>
+      <div class="bar flex items-center justify-center" style="--w:18%;background:#4B2E6B">製造</div>
+      <div class="bar flex items-center justify-center" style="--w:13%;background:#7a5aa0">検査</div>
+      <div class="bar flex items-center justify-center" style="--w:16%;background:#a58cc4">配送</div>
+      <div class="bar flex items-center justify-center" style="--w:19%;background:#D4A017;color:#34194F">運営</div>
+    </div>
+    <ul class="mt-4 space-y-2 text-[12.5px]">
+      <li class="flex items-center justify-between"><span class="flex items-center gap-2"><i class="w-3 h-3 rounded-sm" style="background:#34194F"></i>原料（カシス・リポソームルテイン）</span><b class="mincho">1,300円</b></li>
+      <li class="flex items-center justify-between"><span class="flex items-center gap-2"><i class="w-3 h-3 rounded-sm" style="background:#4B2E6B"></i>国内GMP工場での製造</span><b class="mincho">700円</b></li>
+      <li class="flex items-center justify-between"><span class="flex items-center gap-2"><i class="w-3 h-3 rounded-sm" style="background:#7a5aa0"></i>品質管理・分析検査</span><b class="mincho">500円</b></li>
+      <li class="flex items-center justify-between"><span class="flex items-center gap-2"><i class="w-3 h-3 rounded-sm" style="background:#a58cc4"></i>パッケージ・送料無料の配送</span><b class="mincho">600円</b></li>
+      <li class="flex items-center justify-between"><span class="flex items-center gap-2"><i class="w-3 h-3 rounded-sm" style="background:#D4A017"></i>お問い合わせ対応・運営</span><b class="mincho">724円</b></li>
+    </ul>
+    <div class="mt-3 pt-3 border-t border-dashed border-[#d7c9e8] flex justify-between items-end"><span class="text-[12px]">合計（税込）</span><b class="mincho text-[22px] text-deep">3,824円</b></div>
+    <p class="mt-2 text-[10px] leading-5 text-[#8b7f98]">※【仮】内訳の金額は仮置きです。社内の確定数値・根拠資料に差し替えてから公開してください。</p>
+  </div>
+
+  <h3 class="mt-10 text-center text-[17px] font-bold text-deep">1日の飲みやすさで、並べてみる。</h3>
+  <div class="mt-4 rounded-2xl overflow-hidden border border-[#d9c9ec] bg-white reveal">
+    <table class="w-full text-[12px] text-center">
+      <thead>
+        <tr>
+          <th class="w-[28%] bg-[#ece4f5] p-2 text-[11px] text-mid font-medium"></th>
+          <th class="w-[32%] bg-[#e6e0ec] p-2 text-[12px] text-[#6a6075]">D社<br><span class="font-normal text-[10px]">通常抽出</span></th>
+          <th class="w-[40%] p-2 text-[13px] text-deep font-bold" style="background:linear-gradient(180deg,#FFE9A8,#FFE08A)">わたしのカシス<br><span class="font-medium text-[10px]">リポソーム型</span></th>
+        </tr>
+      </thead>
+      <tbody class="[&_td]:border-t [&_td]:border-[#eadff5] [&_td]:p-2.5 [&_td]:align-middle">
+        <tr><td class="bg-pale text-[11px] font-bold text-mid">1日の粒数</td><td>3粒</td><td class="bg-[#FFFBEA] font-bold text-deep">1粒</td></tr>
+        <tr><td class="bg-pale text-[11px] font-bold text-mid">1袋で飲む粒数</td><td>90粒</td><td class="bg-[#FFFBEA] font-bold text-deep">30粒</td></tr>
+        <tr><td class="bg-pale text-[11px] font-bold text-mid">ルテインの原料</td><td>通常抽出</td><td class="bg-[#FFFBEA] font-bold text-deep">リポソームルテイン</td></tr>
+        <tr><td class="bg-pale text-[11px] font-bold text-mid">カシス</td><td>【要確認】</td><td class="bg-[#FFFBEA] font-bold text-deep">NZ産</td></tr>
+        <tr><td class="bg-pale text-[11px] font-bold text-mid">製造</td><td>【要確認】</td><td class="bg-[#FFFBEA] font-bold text-deep">国内GMP認定工場</td></tr>
+        <tr><td class="bg-pale text-[11px] font-bold text-mid">定期の縛り</td><td>【要確認】</td><td class="bg-[#FFFBEA] font-bold text-deep">なし</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="mt-2 text-[10px] leading-5 text-[#8b7f98]">※【仮】D社の数値は、公開前に公式情報で確認した内容に差し替えてください（調査日・出典を併記）。成分量や吸収性の優劣を示す表ではありません。</p>
+</section>
+
+<!-- ===================== セクション7: 解約・返金タイムライン ===================== -->
+<section class="px-5 py-14 bg-kinari">
+  <p class="text-center text-[11px] tracking-[.3em] text-mid">FLOW</p>
+  <h2 class="mt-3 text-center text-[22px] leading-[1.6] font-bold text-deep">やめたいときも、<br>先に見えるように。</h2>
+  <p class="mt-3 text-center text-[12px] text-[#6b5d7a]">（例）1/1に注文し、1/1発送・1/3到着の場合</p>
+
+  <ol class="tl mt-7 space-y-5 reveal">
+    <li class="relative pl-14">
+      <span class="absolute left-0 top-0 w-10 h-10 rounded-full bg-deep text-gold flex items-center justify-center mincho font-bold text-[13px] ring-4 ring-kinari">1</span>
+      <div class="rounded-xl bg-white border border-[#eadff5] p-4">
+        <p class="text-[11px] font-bold text-gold2">1/1　注文日</p>
+        <p class="mincho font-bold text-deep text-[15px] mt-0.5">初回 1,980円で、はじめる。</p>
+        <p class="text-[12px] leading-6 text-[#6b5d7a] mt-1">1袋（30粒）が届きます。次回発送予定日は前回発送日の30日後。マイページで確認できます【仮】。</p>
+      </div>
+    </li>
+    <li class="relative pl-14">
+      <span class="absolute left-0 top-0 w-10 h-10 rounded-full bg-mid text-white flex items-center justify-center mincho font-bold text-[13px] ring-4 ring-kinari">2</span>
+      <div class="rounded-xl bg-white border-2 border-[#b79ad3] p-4">
+        <p class="text-[11px] font-bold text-mid">1/24　スキップ・解約の期限</p>
+        <p class="mincho font-bold text-deep text-[15px] mt-0.5">次回発送予定日（1/31）の7日前まで。</p>
+        <p class="text-[12px] leading-6 text-[#6b5d7a] mt-1">マイページから、解約・スキップ（次の1回分を見送る）・変更ができます。</p>
+      </div>
+    </li>
+    <li class="relative pl-14">
+      <span class="absolute left-0 top-0 w-10 h-10 rounded-full flex items-center justify-center mincho font-bold text-[13px] ring-4 ring-kinari" style="background:#FFE08A;color:#34194F">3</span>
+      <div class="rounded-xl bg-white border-2 border-gold2 p-4">
+        <p class="text-[11px] font-bold text-gold2">2/2　30日間全額返金保証の期限</p>
+        <p class="mincho font-bold text-deep text-[15px] mt-0.5">商品が届いてから30日以内。</p>
+        <p class="text-[12px] leading-6 text-[#6b5d7a] mt-1">初回分のみ対象。開封済みでも、返送不要で全額返金。メール（info@l-o-e.jp）でお申し込みください。</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="mt-6 rounded-xl p-4 text-[12.5px] leading-7" style="background:#FFF3F0;border:1px solid #f1c3b8">
+    <p class="font-bold text-[#8c2f1b]">ご注意：返金と解約は、別の手続きです。</p>
+    <p class="text-[#6b4a44]">返金のお申し込みだけでは、定期は止まりません。解約・スキップの期限（1/24）は、返金の期限（2/2）より先に来ます。続けない場合は、先にマイページで手続きしてください。</p>
+  </div>
+</section>
+
+<!-- ===================== セクション8: オファー・購入条件表 ===================== -->
+<section id="offer" class="px-5 py-14 bg-pale">
+  <p class="text-center text-[11px] tracking-[.3em] text-mid">OFFER</p>
+  <h2 class="mt-3 text-center text-[22px] leading-[1.6] font-bold text-deep">購入条件を、<br>先にぜんぶ。</h2>
+
+  <div class="mt-6 rounded-2xl p-5 text-center" style="background:linear-gradient(160deg,#34194F,#4B2E6B);color:#fff">
+    <p class="text-[11px] text-gold tracking-widest">定期購入｜初回限定</p>
+    <p class="mt-1 flex items-end justify-center gap-1"><span class="mincho text-[48px] leading-none font-extrabold text-gold">1,980</span><span class="text-lg font-bold pb-1.5">円</span></p>
+    <p class="text-[11px] opacity-90">（税込・送料無料）1袋30粒・30日分</p>
+  </div>
+
+  <div class="mt-4 rounded-2xl bg-white border border-[#eadff5] overflow-hidden">
+    <table class="w-full text-[12.5px] leading-6">
+      <tbody class="[&_th]:bg-pale [&_th]:text-mid [&_th]:text-left [&_th]:align-top [&_th]:p-3 [&_th]:w-[27%] [&_th]:text-[11.5px] [&_td]:p-3 [&_tr]:border-b [&_tr]:border-[#eadff5] [&_tr:last-child]:border-0">
+        <tr><th>初回</th><td>1袋（30粒）<b>1,980円</b>（税込）・送料無料。定期購入です。</td></tr>
+        <tr><th>2回目以降</th><td>30日ごとに1袋 <b>3,824円</b>（税込・1日約127円）・送料無料</td></tr>
+        <tr><th>回数・期間</th><td>回数の縛りはありません。解約するまで30日ごとに発送します【仮】。</td></tr>
+        <tr><th>休止・解約</th><td>次回発送予定日の<b>7日前まで</b>、マイページから解約・スキップ・変更ができます。</td></tr>
+        <tr><th>返金</th><td>初回分のみ。到着後<b>30日以内</b>なら全額返金（開封済み可・返送不要）。2回目以降の商品は対象外。</td></tr>
+        <tr><th>返金のお申し込み</th><td>info@l-o-e.jp へ、お名前・ご注文番号・「返金希望」を記載してご連絡。受付後10営業日以内に手続きします【仮】。</td></tr>
+        <tr><th>発送</th><td>初回は受付後3営業日以内。次回は前回発送日の30日後【仮】。配送業者・日時の指定はできません。</td></tr>
+        <tr><th>お支払い</th><td>クレジットカードのみ。2回目以降は、次回発送予定日の7日前に注文が確定し、お支払いも確定します【仮】。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="mt-3 text-[12px] leading-6 text-[#5b4d6a]">返金のお申し込みだけでは、定期は自動では止まりません。</p>
+  <a href="#" class="cta mt-5 text-[16px]">条件を確認して、初回1,980円で始める</a>
+</section>
+
+<!-- ===================== セクション9: よくある質問 ===================== -->
+<section class="px-5 py-14 bg-kinari">
+  <p class="text-center text-[11px] tracking-[.3em] text-mid">FAQ</p>
+  <h2 class="mt-3 text-center text-[22px] leading-[1.6] font-bold text-deep">申し込む前に、<br>よくある質問。</h2>
+  <div class="mt-6 space-y-2.5" id="faq">
+    <div class="acc-item rounded-xl bg-white border border-[#eadff5] overflow-hidden">
+      <button class="w-full flex items-center gap-3 text-left p-4" aria-expanded="false"><span class="mincho text-gold2 font-bold text-[16px]">Q</span><span class="flex-1 text-[13.5px] font-medium text-deep">味はしますか。いつ飲めばいいですか。</span><svg class="chev shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B2E6B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="acc-panel"><p class="px-4 pb-4 pl-11 text-[12.5px] leading-7 text-[#5b4d6a]">カプセルなので、味はしません。1日1粒を目安に、水またはぬるま湯でお飲みください。タイミングは、いつでも構いません。</p></div>
+    </div>
+    <div class="acc-item rounded-xl bg-white border border-[#eadff5] overflow-hidden">
+      <button class="w-full flex items-center gap-3 text-left p-4" aria-expanded="false"><span class="mincho text-gold2 font-bold text-[16px]">Q</span><span class="flex-1 text-[13.5px] font-medium text-deep">機能性表示食品ですか。</span><svg class="chev shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B2E6B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="acc-panel"><p class="px-4 pb-4 pl-11 text-[12.5px] leading-7 text-[#5b4d6a]">いいえ、一般食品です。そのため、1粒の中身は数字で先にお伝えしています。</p></div>
+    </div>
+    <div class="acc-item rounded-xl bg-white border border-[#eadff5] overflow-hidden">
+      <button class="w-full flex items-center gap-3 text-left p-4" aria-expanded="false"><span class="mincho text-gold2 font-bold text-[16px]">Q</span><span class="flex-1 text-[13.5px] font-medium text-deep">通院中・服薬中ですが、飲めますか。</span><svg class="chev shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B2E6B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="acc-panel"><p class="px-4 pb-4 pl-11 text-[12.5px] leading-7 text-[#5b4d6a]">治療中の方、服薬中の方、妊娠・授乳中の方は、事前に医師にご相談ください。</p></div>
+    </div>
+    <div class="acc-item rounded-xl bg-white border border-[#eadff5] overflow-hidden">
+      <button class="w-full flex items-center gap-3 text-left p-4" aria-expanded="false"><span class="mincho text-gold2 font-bold text-[16px]">Q</span><span class="flex-1 text-[13.5px] font-medium text-deep">2回目以降は、いくらで、いつ支払いが確定しますか。</span><svg class="chev shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B2E6B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="acc-panel"><p class="px-4 pb-4 pl-11 text-[12.5px] leading-7 text-[#5b4d6a]">30日ごとに1袋3,824円（税込）・送料無料です。お支払いはクレジットカードのみ。次回発送予定日の7日前にご注文が確定し、そのときにお支払いが確定します【仮】。</p></div>
+    </div>
+    <div class="acc-item rounded-xl bg-white border border-[#eadff5] overflow-hidden">
+      <button class="w-full flex items-center gap-3 text-left p-4" aria-expanded="false"><span class="mincho text-gold2 font-bold text-[16px]">Q</span><span class="flex-1 text-[13.5px] font-medium text-deep">解約やスキップは、どうすればできますか。</span><svg class="chev shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B2E6B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="acc-panel"><p class="px-4 pb-4 pl-11 text-[12.5px] leading-7 text-[#5b4d6a]">回数の縛りはありません。解約・スキップ・変更は、次回発送予定日の7日前までに、マイページからできます。</p></div>
+    </div>
+    <div class="acc-item rounded-xl bg-white border border-[#eadff5] overflow-hidden">
+      <button class="w-full flex items-center gap-3 text-left p-4" aria-expanded="false"><span class="mincho text-gold2 font-bold text-[16px]">Q</span><span class="flex-1 text-[13.5px] font-medium text-deep">返金は、どう申し込みますか。</span><svg class="chev shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B2E6B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="acc-panel"><p class="px-4 pb-4 pl-11 text-[12.5px] leading-7 text-[#5b4d6a]">初回分のみが対象です。商品が届いてから30日以内に、メール（info@l-o-e.jp）でお申し込みください。全額を返金します。開封済みでも対象で、返送は不要です。2回目以降の商品は対象外です。</p></div>
+    </div>
+    <div class="acc-item rounded-xl bg-white border border-[#eadff5] overflow-hidden">
+      <button class="w-full flex items-center gap-3 text-left p-4" aria-expanded="false"><span class="mincho text-gold2 font-bold text-[16px]">Q</span><span class="flex-1 text-[13.5px] font-medium text-deep">返金を申し込めば、定期購入も止まりますか。</span><svg class="chev shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B2E6B" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="acc-panel"><p class="px-4 pb-4 pl-11 text-[12.5px] leading-7 text-[#5b4d6a]">止まりません。返金と解約は別の手続きで、期限も別です。<br>・返金：初回分のみ。届いてから30日以内にメールで。<br>・解約・スキップ・変更：次回発送予定日の7日前までに、マイページで。<br>続けない場合は、返金のお申し込みとは別に、解約の手続きが必要です。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== フッター ===================== -->
+<footer class="px-5 py-10 bg-deep text-white text-center">
+  <p class="mincho text-[18px] leading-8 font-bold">自分のための1粒を、<br>納得して選ぶ。</p>
+  <a href="#offer" class="cta mt-5 text-[15px]">初回1,980円で始める</a>
+  <p class="mt-6 text-[10px] leading-5 opacity-70">※本品は一般食品です。疾病の診断・治療・予防を目的としたものではありません。<br>© Univein Inc.</p>
+  <p class="mt-3 text-[10px] opacity-50">（実装確認用プレビュー／写真は仮配置）</p>
+</footer>
+
+</div>
+
+<!-- ===================== 固定フッターCTA ===================== -->
+<div id="floatCta" class="fixed bottom-0 left-1/2 z-50 w-full" style="max-width:390px;transform:translate(-50%,110%);transition:transform .35s ease">
+  <div class="px-4 pt-3 pb-4" style="background:linear-gradient(180deg,rgba(250,246,239,0),rgba(250,246,239,.96) 30%)">
+    <a href="#offer" class="cta text-[16px]">初回1,980円で始める<small>送料無料・回数の縛りなし</small></a>
+  </div>
+</div>
+
+<script>
+/* 画像フォールバック: 本番素材(webp)が無い場合は仮写真、それも無い場合はグラデ背景のまま */
+function imgFb(el){
+  var fb = el.getAttribute('data-fb');
+  if (fb && el.getAttribute('data-tried') !== '1') { el.setAttribute('data-tried','1'); el.src = fb; }
+  else { el.style.display = 'none'; }
+}
+
+/* 30日カレンダー: 縦5行×横6列=30マス。1〜5=達成シール */
+(function(){
+  var cal = document.getElementById('calendar'), html = '';
+  for (var i = 1; i <= 30; i++) {
+    var done = i <= 5;
+    html += '<div class="cell' + (done ? ' done' : '') + '"><span class="n">' + i + '</span>' + (done ? '<span class="seal">✓</span>' : '') + '</div>';
+  }
+  cal.innerHTML = html;
+  document.getElementById('doneCount').textContent = cal.querySelectorAll('.done').length;
+})();
+
+/* リポソーム二重膜の模式図 */
+(function(){
+  var svg = document.getElementById('lipo'), cx = 130, cy = 130, NS = 'http://www.w3.org/2000/svg';
+  function el(n, a){ var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); svg.appendChild(e); return e; }
+  var defs = el('defs', {});
+  defs.innerHTML = '<radialGradient id="lg" cx="40%" cy="35%"><stop offset="0" stop-color="#FFE27A"/><stop offset="1" stop-color="#F2B705"/></radialGradient>';
+  el('circle', {cx:cx, cy:cy, r:122, fill:'rgba(255,255,255,.06)'});
+  var rOut = 108, rIn = 70, N = 36, tail = 15;
+  for (var i = 0; i < N; i++) {
+    var a = i / N * Math.PI * 2, c = Math.cos(a), s = Math.sin(a);
+    /* 外層: 頭部を外へ、尾部を内へ */
+    el('line', {x1:cx + c*(rOut-8), y1:cy + s*(rOut-8), x2:cx + c*(rOut-8-tail), y2:cy + s*(rOut-8-tail), stroke:'#FFE08A', 'stroke-width':2, 'stroke-linecap':'round'});
+    el('circle', {cx:cx + c*rOut, cy:cy + s*rOut, r:6, fill:'#FFE08A'});
+  }
+  for (var j = 0; j < 26; j++) {
+    var b = j / 26 * Math.PI * 2, c2 = Math.cos(b), s2 = Math.sin(b);
+    /* 内層: 頭部を内へ、尾部を外へ */
+    el('line', {x1:cx + c2*(rIn+8), y1:cy + s2*(rIn+8), x2:cx + c2*(rIn+8+tail), y2:cy + s2*(rIn+8+tail), stroke:'#b9a3d1', 'stroke-width':2, 'stroke-linecap':'round'});
+    el('circle', {cx:cx + c2*rIn, cy:cy + s2*rIn, r:6, fill:'#d9c9ec'});
+  }
+  el('circle', {cx:cx, cy:cy, r:44, fill:'url(#lg)'});
+  var t = el('text', {x:cx, y:cy+4, 'text-anchor':'middle', 'font-size':13, 'font-weight':700, fill:'#4a3300'}); t.textContent = 'ルテイン';
+  var l1 = el('text', {x:cx, y:20, 'text-anchor':'middle', 'font-size':10, fill:'#FFE08A'}); l1.textContent = '二重膜（リン脂質）';
+})();
+
+/* アコーディオン */
+document.querySelectorAll('#faq .acc-item').forEach(function(item){
+  var btn = item.querySelector('button'), panel = item.querySelector('.acc-panel');
+  btn.addEventListener('click', function(){
+    var open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0px';
+  });
+});
+
+/* カルーセルのドット */
+(function(){
+  var car = document.getElementById('carousel'), dots = document.getElementById('dots'), cards = car.children;
+  for (var i = 0; i < cards.length; i++) { var d = document.createElement('span'); d.className = 'w-1.5 h-1.5 rounded-full bg-[#cdb8e3] transition-all'; dots.appendChild(d); }
+  function upd(){
+    var mid = car.scrollLeft + car.clientWidth/2, best = 0, bd = 1e9;
+    for (var i = 0; i < cards.length; i++) { var c = cards[i], cc = c.offsetLeft + c.offsetWidth/2, dd = Math.abs(cc - mid); if (dd < bd) { bd = dd; best = i; } }
+    for (var k = 0; k < dots.children.length; k++) { dots.children[k].style.background = k === best ? '#4B2E6B' : '#cdb8e3'; dots.children[k].style.width = k === best ? '18px' : '6px'; }
+  }
+  car.addEventListener('scroll', upd, {passive:true}); upd();
+})();
+
+/* スクロール出現・バーアニメ */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.15});
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+/* 追従CTA: FVのCTAが画面から外れたら表示 */
+(function(){
+  var f = document.getElementById('floatCta'), fv = document.getElementById('fv');
+  function chk(){
+    var past = fv.getBoundingClientRect().bottom < window.innerHeight * 0.6;
+    f.style.transform = past ? 'translate(-50%,0)' : 'translate(-50%,110%)';
+  }
+  window.addEventListener('scroll', chk, {passive:true}); window.addEventListener('resize', chk); chk();
+})();
+</script>
+</body>
+</html>
