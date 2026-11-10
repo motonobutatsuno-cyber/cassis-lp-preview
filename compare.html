@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>カシス・ルテイン 仕様比較</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@600;800&display=swap" rel="stylesheet">
+<style>
+/* 構成: 運営者帯 → 条件を選ぶ → 結果 → 全商品の表 → 条件を変えると → 出典。スマホ幅(検索広告の着地)を基準にした1カラム */
+:root{
+  --bg:#F7F4EE; --card:#FFFFFF; --fg:#2A2430; --muted:#6B6275; --line:#E4DDEB;
+  --accent:#4B2E6B; --accent-fg:#FFFFFF; --soft:#F1E9F8; --gold:#D4A017; --goldsoft:#FFF4D1;
+  --ok:#1E7A4C; --okbg:#E3F4EA; --ng:#9A3A2B; --ngbg:#FBE9E5; --warn:#8A6500; --warnbg:#FFF4D1;
+  --f-head:'Shippori Mincho B1',serif; --f-body:'Noto Sans JP',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17131C; --card:#221C2A; --fg:#EFE9F5; --muted:#A99FB6; --line:#3A3146;
+  --accent:#C9A8EE; --accent-fg:#1B1424; --soft:#2D2438; --gold:#E8B83A; --goldsoft:#3A3014;
+  --ok:#6FD3A1; --okbg:#173326; --ng:#F29B8A; --ngbg:#3A1E19; --warn:#F0C65A; --warnbg:#3A3014; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17131C; --card:#221C2A; --fg:#EFE9F5; --muted:#A99FB6; --line:#3A3146;
+  --accent:#C9A8EE; --accent-fg:#1B1424; --soft:#2D2438; --gold:#E8B83A; --goldsoft:#3A3014;
+  --ok:#6FD3A1; --okbg:#173326; --ng:#F29B8A; --ngbg:#3A1E19; --warn:#F0C65A; --warnbg:#3A3014; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.wrap{max-width:760px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-head);line-height:1.5;margin:0;text-wrap:balance}
+.disclose{margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:10px max(16px,env(safe-area-inset-left,0px));background:var(--accent);color:var(--accent-fg);font-size:12.5px;line-height:1.6}
+.disclose b{font-weight:700}
+header.hero{padding:28px 0 8px}
+.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+h1{font-size:25px;font-weight:800;margin-top:6px}
+.lead{margin:12px 0 0;color:var(--muted);font-size:14px}
+section{margin-top:30px}
+h2{font-size:19px;font-weight:800}
+.sub{font-size:12.5px;color:var(--muted);margin:4px 0 0}
+.presets{display:grid;gap:8px;margin-top:14px}
+.preset{all:unset;box-sizing:border-box;cursor:pointer;display:block;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--card)}
+.preset b{display:block;font-size:14px}
+.preset span{font-size:12px;color:var(--muted)}
+.preset[aria-pressed="true"]{border-color:var(--accent);background:var(--soft)}
+.preset:focus-visible,.chip:focus-visible,select:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.conds{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+.chip{all:unset;box-sizing:border-box;cursor:pointer;padding:7px 12px;border:1.5px solid var(--line);border-radius:999px;font-size:13px;background:var(--card)}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+select{font:inherit;font-size:13px;padding:7px 10px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--fg)}
+.result{margin-top:16px;padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.count{font-family:var(--f-head);font-size:20px;font-weight:800}
+.hit{margin-top:12px;padding:14px;border:2px solid var(--gold);background:var(--goldsoft);border-radius:12px}
+.hit h3{font-size:17px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-size:11.5px;padding:2px 9px;border-radius:999px;background:var(--soft);color:var(--accent)}
+.tag.ok{background:var(--okbg);color:var(--ok)} .tag.ng{background:var(--ngbg);color:var(--ng)} .tag.warn{background:var(--warnbg);color:var(--warn)}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}
+.spec div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center}
+.spec b{display:block;font-family:var(--f-head);font-size:19px}
+.spec small{font-size:11px;color:var(--muted)}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.btn{display:block;text-align:center;text-decoration:none;font-weight:700;font-size:13.5px;padding:11px 8px;border-radius:10px;border:1.5px solid var(--accent);color:var(--accent);background:var(--card)}
+.out{margin:12px 0 0;padding:0;list-style:none;font-size:13px}
+.out li{padding:6px 0;border-top:1px dashed var(--line)}
+.out em{font-style:normal;color:var(--ng)}
+.scroller{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:12.5px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:11.5px;white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.me td{background:var(--goldsoft)}
+tr.dim td{opacity:.45}
+.note{font-size:12px;color:var(--muted);margin-top:8px}
+.cases{display:grid;gap:10px;margin-top:12px}
+.case{padding:14px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+.case h3{font-size:15px}
+.case p{margin:6px 0 0;font-size:13.5px}
+.src{font-size:12px;color:var(--muted);margin:10px 0 0;padding-left:1.1em}
+.src li{margin:3px 0;overflow-wrap:anywhere}
+a{color:var(--accent)}
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+@media (min-width:560px){.presets{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="disclose"><div class="wrap"><b>運営：株式会社Univein。</b>本サイトは「わたしのカシス」の販売事業者が運営しており、比較対象に自社商品を含みます。各商品へのリンクは Amazon・楽天市場の検索ページで、広告を含みます。<span style="opacity:.85">（社内ドラフト）</span></div></div>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">Specification comparison</div>
+  <h1>カシスアントシアニンとルテイン。<br>量が数字で書いてある商品を、並べました。</h1>
+  <p class="lead">条件を選ぶと、残る商品が変わります。価格だけで選ぶ人、届出のある商品から選ぶ人、粒数を増やしたくない人。それぞれの結果を、同じ表の中で見られます。</p>
+</header>
+
+<section aria-labelledby="h-cond">
+  <h2 id="h-cond">あなたの条件を選ぶ</h2>
+  <p class="sub">下のボタンで条件が入ります。個別の条件も、自由に付け外しできます。</p>
+  <div class="presets" id="presets"></div>
+  <div class="conds" id="conds"></div>
+  <div class="result" id="result" aria-live="polite"></div>
+</section>
+
+<section aria-labelledby="h-table">
+  <h2 id="h-table">全7商品の仕様（確認日 2026-11-10）</h2>
+  <p class="sub">横にスクロールできます。条件に合わない商品は薄く表示します。空欄の代わりに「確認中」「表示なし」と書いています。</p>
+  <div class="scroller"><table id="tbl"></table></div>
+  <p class="note">30日価格は、各商品の定価・通常価格ベースです（定期・キャンペーンは含みません）。20日分の商品は30日分に換算しています（換算値と明記）。1mg単価は価格を量で割った算数で、商品の価値の順位ではありません。</p>
+</section>
+
+<section aria-labelledby="h-cases">
+  <h2 id="h-cases">条件を変えると、結果はこう変わります</h2>
+  <div class="cases">
+    <div class="case"><h3>価格を最優先にする</h3><p>この表で30日価格が確認できた商品のうち、いちばん安いのは「カシス-i」（30日換算2,315円。ルテインは0.5mg）、次いで「メクリア」（通常3,780円）です。「わたしのカシス」の定価は4,780円で、高い側にあります。</p></div>
+    <div class="case"><h3>機能性表示食品から選ぶ</h3><p>届出のある商品は「ヘルスエイド カシスアイ」「えんきん」「DHC ルテイン光対策」です。「わたしのカシス」は一般食品のため、この条件では対象外です。</p></div>
+    <div class="case"><h3>カシスとルテインを、1日1粒で済ませたい</h3><p>カシス由来アントシアニン50mg以上とルテイン10mg以上の両方を、1日1粒で満たすのは、この表では「わたしのカシス」だけです（継続時。初月は2粒が目安）。</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-src">
+  <h2 id="h-src">出典と確認状況</h2>
+  <ul class="src">
+    <li>わたしのカシス：社内資料（成分・価格・仕様）。2026-11-10 時点。</li>
+    <li>ヘルスエイド カシスアイ：機能性表示食品データベースの E453 の記載（<a href="https://yakujihou-marketing.net/database/e453/" target="_blank" rel="noopener">yakujihou-marketing.net</a>）、メーカー発表（<a href="https://prtimes.jp/main/html/rd/p/000000058.000035073.html" target="_blank" rel="noopener">PR TIMES</a>）。価格は社内調査（2026-10-21）で、要再確認。</li>
+    <li>カシス-i EX：メーカー発表の報道（<a href="https://www.yakuji.co.jp/?p=67365" target="_blank" rel="noopener">薬事日報</a>）。希望小売は2018年発売時の価格で、現行価格は要再確認。</li>
+    <li>カシス-i：メーカー発表の報道（<a href="https://www.yakuji.co.jp/entry66679.html" target="_blank" rel="noopener">薬事日報</a>）、社内調査（2026-10-21）。ルテイン量は要再確認。</li>
+    <li>メクリア：販売店ページの記載（<a href="https://store.shopping.yahoo.co.jp/realmate/mc0881.html" target="_blank" rel="noopener">Yahoo!ショッピング</a>）。表示区分と定期価格は出典間で差があり、公式ページの本文は未確認（確認中）。</li>
+    <li>えんきん：メーカー・販売店ページの記載（<a href="https://www.e-fujiyakuhin.jp/smp/item/4908049698096.html" target="_blank" rel="noopener">販売店</a>）。30日価格は確認中。</li>
+    <li>DHC ルテイン光対策：販売店ページの記載（<a href="https://www.e-fujiyakuhin.jp/SHOP/4511413405253.html" target="_blank" rel="noopener">販売店</a>）。届出番号と30日価格は確認中。</li>
+  </ul>
+  <p class="note">「確認中」は、一次情報のページ本文を読めていない、または出典間で値が異なる項目です。推測で補っていません。商品名リンクは検索ページで、各商品の実売価格・条件は、リンク先で確認してください。</p>
+</section>
+
+<footer>運営：株式会社Univein ／ 内容の更新日：2026-11-10 ／ 本ページは社内確認用のドラフトです。</footer>
+</div>
+
+<script>
+/* 商品データ。null は「表示なし」(ac) または「確認中」(p30) */
+var P=[
+ {id:'me',name:'わたしのカシス',maker:'Univein（自社）',cat:'一般食品',fn:false,per:1,perNote:'継続時。初月は2粒が目安',ac:50,lu:10,p30:4780,pNote:'定価（自社ECの単品）。定期3,824円',me:true,q:'わたしのカシス'},
+ {id:'eye',name:'ヘルスエイド カシスアイ',maker:'森下仁丹',cat:'機能性表示食品（E453）',fn:true,per:3,ac:50,lu:10,p30:4860,pNote:'30日・社内調査 2026-10-21（要再確認）',q:'ヘルスエイド カシスアイ'},
+ {id:'ex',name:'カシス-i EX',maker:'森下仁丹',cat:'機能性表示なし',fn:false,per:3,ac:50,lu:12,p30:5670,pNote:'20日分3,780円（2018年発売時の希望小売）の30日換算',q:'カシス-i EX'},
+ {id:'i',name:'カシス-i',maker:'森下仁丹',cat:'機能性表示なし',fn:false,per:3,ac:50,lu:0.5,p30:2315,pNote:'20日分1,543円（社内調査）の30日換算。ルテイン量は要再確認',q:'カシス-i 森下仁丹'},
+ {id:'mec',name:'メクリア',maker:'リアルメイト',cat:'栄養機能食品（ビタミンA）と記載（確認中）',fn:false,per:2,ac:50,lu:20,p30:3780,pNote:'通常。定期は2,980円前後と記載（出典間で差）',q:'メクリア リアルメイト'},
+ {id:'enk',name:'えんきん',maker:'ファンケル',cat:'機能性表示食品',fn:true,per:1,ac:null,lu:10,p30:null,pNote:'確認中',q:'えんきん ファンケル'},
+ {id:'dhc',name:'ルテイン 光対策',maker:'DHC',cat:'機能性表示食品',fn:true,per:1,ac:null,lu:16,p30:null,pNote:'確認中',q:'DHC ルテイン 光対策'}
+];
+var PRESETS=[
+ {k:'one',t:'1日1粒で、カシスとルテインの両方',d:'粒数を増やしたくない・併用したくない',on:{per:1,ac:1,lu:1}},
+ {k:'price',t:'価格を重視',d:'30日価格が安い順に見る',on:{},sort:'price'},
+ {k:'fn',t:'機能性表示食品から選ぶ',d:'届出のある商品だけ',on:{fn:1}}
+];
+var state={per:0,ac:0,lu:0,fn:0,max:0,sort:'pos',preset:'one'};
+function applyPreset(k){var p=PRESETS.filter(function(x){return x.k===k})[0];state={per:0,ac:0,lu:0,fn:0,max:0,sort:p.sort||'pos',preset:k};for(var x in p.on)state[x]=p.on[x];render()}
+var fmt=function(n){return n==null?'':n.toLocaleString('ja-JP')};
+function match(p){var r=[];
+ if(state.per&&!(p.per<=1))r.push('1日'+p.per+'粒');
+ if(state.ac&&!(p.ac!=null&&p.ac>=50))r.push(p.ac==null?'カシス由来アントシアニンの表示なし':'アントシアニン'+p.ac+'mg');
+ if(state.lu&&!(p.lu!=null&&p.lu>=10))r.push('ルテイン'+p.lu+'mg');
+ if(state.fn&&!p.fn)r.push('機能性表示食品ではない');
+ if(state.max&&!(p.p30!=null&&p.p30<=state.max))r.push(p.p30==null?'30日価格が確認中':'30日価格'+fmt(p.p30)+'円');
+ return r}
+function btns(p){var q=encodeURIComponent(p.q);return '<div class="btns"><a class="btn" target="_blank" rel="noopener sponsored" href="https://www.amazon.co.jp/s?k='+q+'">Amazonで見る</a><a class="btn" target="_blank" rel="noopener sponsored" href="https://search.rakuten.co.jp/search/mall/'+q+'/">楽天市場で見る</a></div>'}
+function render(){
+ var pb=document.getElementById('presets');pb.innerHTML=PRESETS.map(function(p){return '<button class="preset" aria-pressed="'+(state.preset===p.k)+'" data-k="'+p.k+'"><b>'+p.t+'</b><span>'+p.d+'</span></button>'}).join('');
+ pb.querySelectorAll('button').forEach(function(b){b.onclick=function(){applyPreset(b.dataset.k)}});
+ var cb=document.getElementById('conds');
+ var defs=[['per','1日1粒'],['ac','カシス由来アントシアニン 50mg以上'],['lu','ルテイン 10mg以上'],['fn','機能性表示食品']];
+ cb.innerHTML=defs.map(function(d){return '<button class="chip" aria-pressed="'+!!state[d[0]]+'" data-c="'+d[0]+'">'+d[1]+'</button>'}).join('')+
+  '<select id="mx" aria-label="30日価格の上限"><option value="0">価格の上限なし</option><option value="3000">30日 3,000円まで</option><option value="4000">30日 4,000円まで</option><option value="5000">30日 5,000円まで</option></select>';
+ cb.querySelectorAll('.chip').forEach(function(b){b.onclick=function(){state[b.dataset.c]=state[b.dataset.c]?0:1;state.preset='';render()}});
+ var mx=document.getElementById('mx');mx.value=String(state.max);mx.onchange=function(){state.max=+mx.value;state.preset='';render()};
+ var active=state.per||state.ac||state.lu||state.fn||state.max;
+ var hits=P.filter(function(p){return match(p).length===0}),outs=P.filter(function(p){return match(p).length>0});
+ var h='<div class="count">'+(active?'条件に合う商品：'+hits.length+' / '+P.length:'条件なし：全'+P.length+'商品')+'</div>';
+ if(active&&hits.length===0)h+='<p>この条件に合う商品は、この表の中にはありませんでした。</p>';
+ hits.slice().sort(function(a,b){return a.p30==null?1:b.p30==null?-1:a.p30-b.p30}).forEach(function(p){if(!active)return;
+  h+='<div class="hit"><h3>'+p.name+'<span style="font-size:12px;font-weight:400;color:var(--muted)">　'+p.maker+'</span></h3><div class="tags"><span class="tag '+(p.fn?'ok':'')+'">'+p.cat+'</span><span class="tag">1日'+p.per+'粒'+(p.perNote?'（'+p.perNote+'）':'')+'</span></div>'+
+  '<div class="spec"><div><b>'+(p.ac==null?'表示なし':p.ac+'mg')+'</b><small>アントシアニン/日</small></div><div><b>'+p.lu+'mg</b><small>ルテイン/日</small></div><div><b>'+(p.p30==null?'確認中':fmt(p.p30)+'円')+'</b><small>30日価格</small></div></div>'+
+  '<p class="note" style="margin-top:8px">'+p.pNote+'</p>'+btns(p)+'</div>'});
+ if(active&&outs.length){h+='<ul class="out">';outs.forEach(function(p){h+='<li><b>'+p.name+'</b>：<em>'+match(p).join('、')+'</em> のため、この条件からは外れました</li>'});h+='</ul>'}
+ if(!active)h+='<p class="note">上の条件を選ぶと、残る商品が絞り込まれます。</p>';
+ document.getElementById('result').innerHTML=h;
+ var rows=P.slice();if(state.sort==='price')rows.sort(function(a,b){return a.p30==null?1:b.p30==null?-1:a.p30-b.p30});
+ var t='<thead><tr><th>商品</th><th>区分</th><th class="num">1日の粒数</th><th class="num">アントシアニン/日</th><th class="num">ルテイン/日</th><th class="num">30日価格</th><th class="num">1日あたり</th></tr></thead><tbody>';
+ rows.forEach(function(p){var ok=match(p).length===0;t+='<tr class="'+(p.me?'me ':'')+((active&&!ok)?'dim':'')+'"><td><b>'+p.name+'</b><br><span style="color:var(--muted)">'+p.maker+'</span></td><td>'+p.cat+'</td><td class="num">'+p.per+'粒'+(p.perNote?'<br><span style="color:var(--muted)">'+p.perNote+'</span>':'')+'</td><td class="num">'+(p.ac==null?'表示なし':p.ac+'mg')+'</td><td class="num">'+p.lu+'mg</td><td class="num">'+(p.p30==null?'確認中':fmt(p.p30)+'円')+'<br><span style="color:var(--muted);font-size:11px">'+p.pNote+'</span></td><td class="num">'+(p.p30==null?'確認中':'約'+Math.round(p.p30/30)+'円')+'</td></tr>'});
+ document.getElementById('tbl').innerHTML=t+'</tbody>';
+}
+applyPreset('one');
+</script>
+</body>
+</html>
