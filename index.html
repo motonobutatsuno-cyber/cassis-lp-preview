@@ -31,6 +31,10 @@ tailwind.config = {
   /* 写真プレースホルダ */
   .ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#d9cde8,#f1e3b8)}
   .ph img{display:block;width:100%;height:100%;object-fit:cover}
+  .ph-note{position:absolute;inset:0;z-index:4;padding:12px 12px 36px;font-size:11px;line-height:1.6;color:#34194F;background:rgba(255,255,255,.88);overflow:auto;text-align:left}
+  .ph-note b{display:block;color:#8a6500;font-size:10px;margin-top:4px}
+  .ph-note.top{inset:100px 12px auto 12px;padding:10px 12px;border-radius:10px;font-size:10.5px}
+  .w-\[118px\] .ph-note{font-size:9.5px;padding:8px 6px 40px}
   .ph-badge{position:absolute;left:8px;bottom:8px;z-index:5;background:rgba(0,0,0,.72);color:#fff;font-size:10px;line-height:1.4;padding:3px 8px;border-radius:999px;letter-spacing:.02em}
   /* CTA */
   .cta{display:block;text-align:center;font-weight:700;color:#34194F;background:linear-gradient(180deg,#FFE9A8 0%,#FFE08A 45%,#D4A017 140%);border-radius:999px;padding:16px 12px;box-shadow:0 4px 0 #B5870F,0 8px 18px rgba(212,160,23,.35);transition:transform .15s, box-shadow .15s}
@@ -69,8 +73,8 @@ tailwind.config = {
 
 <!-- ===================== セクション0: FV ===================== -->
 <section id="fv" class="relative text-white" style="min-height:760px;background:linear-gradient(160deg,#6a4a2b,#c9a56a)">
-  <div class="ph absolute inset-0" style="background:linear-gradient(160deg,#6a4a2b,#c9a56a)">
-    <img src="./assets/images/scene_03_tea.webp" data-fb="./img/A-02-3.jpg" alt="夕方、ガラスのポットからお茶を注ぐ手元" onerror="imgFb(this)">
+  <div class="ph absolute inset-0" style="position:absolute;inset:0;background:linear-gradient(160deg,#6a4a2b,#c9a56a)">
+    <img src="./assets/images/scene_03_tea.webp" data-fb="./img/A-02-3.jpg" alt="夕方、ガラスのポットからお茶を注ぐ手元" data-plan="夕方、窓辺でガラスのポットから白いカップへお茶を注ぐ、日本人女性の手元（40代・自然光）" data-why="注ぐお茶の流れ、ガラスの反射、指の本数や関節が崩れやすく、日本人の手元らしい質感も不自然になりがち。実写撮影が確実" data-pos="top" onerror="imgFb(this)">
   </div>
   <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(52,25,79,.15) 0%,rgba(52,25,79,.25) 30%,rgba(52,25,79,.88) 66%,#34194F 100%)"></div>
   <span class="ph-badge" style="top:10px;bottom:auto;left:10px">※本番時に日本人向け実写素材へ差し替え</span>
@@ -161,19 +165,19 @@ tailwind.config = {
   </div>
   <div class="snap mt-6 flex gap-4 overflow-x-auto px-[11%] pb-4" id="carousel">
     <article class="rounded-2xl bg-white shadow-md overflow-hidden">
-      <div class="ph h-[260px]"><img src="./assets/images/scene_01_book.webp" data-fb="./img/A-02-1.jpg" alt="夜、ひざの上で本を開く手元" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
+      <div class="ph h-[260px]"><img src="./assets/images/scene_01_book.webp" data-fb="./img/A-02-1.jpg" alt="夜、ひざの上で本を開く手元" data-plan="夜、間接照明の下でひざの上に文庫本を開く、日本人女性の手元" data-why="手と本の接触部分、ページの厚みや文字が破綻しやすい。手元のアップは特にAI生成と気づかれやすい" data-pos="" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
       <div class="p-4"><p class="text-[11px] text-gold2 font-bold tracking-widest">NIGHT</p><h3 class="mt-1 text-[16px] font-bold text-deep">夜、好きな本を開く。</h3><p class="mt-1 text-[12px] leading-6 text-[#6b5d7a]">ページをめくる、ひとりの静かな時間。</p></div>
     </article>
     <article class="rounded-2xl bg-white shadow-md overflow-hidden">
-      <div class="ph h-[260px]"><img src="./assets/images/scene_02_avenue.webp" data-fb="./img/A-02-2.jpg" alt="休日、並木道を歩く後ろ姿" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
+      <div class="ph h-[260px]"><img src="./assets/images/scene_02_avenue.webp" data-fb="./img/A-02-2.jpg" alt="休日、並木道を歩く後ろ姿" data-plan="休日の午後、並木道を歩く40代日本人女性の後ろ姿（ニット・自然光）" data-why="歩行姿勢や服のしわ、並木の奥行きが不自然になりやすく、日本人の体型・髪質も再現が不安定" data-pos="" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
       <div class="p-4"><p class="text-[11px] text-gold2 font-bold tracking-widest">HOLIDAY</p><h3 class="mt-1 text-[16px] font-bold text-deep">休日、並木道を歩く。</h3><p class="mt-1 text-[12px] leading-6 text-[#6b5d7a]">気の向くまま、季節の景色を眺めて。</p></div>
     </article>
     <article class="rounded-2xl bg-white shadow-md overflow-hidden">
-      <div class="ph h-[260px]"><img src="./assets/images/scene_03_tea.webp" data-fb="./img/A-02-3.jpg" alt="ガラスのポットからお茶を注ぐ手元" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
+      <div class="ph h-[260px]"><img src="./assets/images/scene_03_tea.webp" data-fb="./img/A-02-3.jpg" alt="ガラスのポットからお茶を注ぐ手元" data-plan="帰り道のカフェで、ガラスのポットから白いカップへお茶を注ぐ手元" data-why="液体と透明な容器の描写が崩れやすく、手の形も不安定。実写またはストック素材で用意" data-pos="" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
       <div class="p-4"><p class="text-[11px] text-gold2 font-bold tracking-widest">TEA TIME</p><h3 class="mt-1 text-[16px] font-bold text-deep">帰り道に、お茶を飲む。</h3><p class="mt-1 text-[12px] leading-6 text-[#6b5d7a]">誰かと笑う時間も、ひとりの時間も。</p></div>
     </article>
     <article class="rounded-2xl bg-white shadow-md overflow-hidden">
-      <div class="ph h-[260px]"><img src="./assets/images/scene_04_morning.webp" data-fb="./img/A-01.jpg" alt="朝のテーブルでマグカップを持つ後ろ姿" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
+      <div class="ph h-[260px]"><img src="./assets/images/scene_04_morning.webp" data-fb="./img/A-01.jpg" alt="朝のテーブルでマグカップを持つ後ろ姿" data-plan="朝のテーブルで両手でマグカップを持つ、日本人女性の後ろ姿（朝の光）" data-why="マグカップを持つ手、湯気、髪や肩のラインが崩れやすい。顔なしでも日本人らしさの再現が難しい" data-pos="" onerror="imgFb(this)"><span class="ph-badge">※本番時に日本人向け実写素材へ差し替え</span></div>
       <div class="p-4"><p class="text-[11px] text-gold2 font-bold tracking-widest">MORNING</p><h3 class="mt-1 text-[16px] font-bold text-deep">朝、1日の始まりに。</h3><p class="mt-1 text-[12px] leading-6 text-[#6b5d7a]">マグカップのそばに、1粒の習慣を。</p></div>
     </article>
   </div>
@@ -251,7 +255,7 @@ tailwind.config = {
   <h3 class="mt-9 text-center text-[17px] font-bold text-deep">この1粒をつくった人</h3>
   <div class="mt-4 space-y-4">
     <article class="rounded-2xl bg-white border border-[#eadff5] overflow-hidden flex reveal">
-      <div class="ph w-[118px] shrink-0"><img src="./img/matsuoka-ishi.png" alt="監修 眼科専門医" onerror="this.style.display='none'"><span class="ph-badge" style="left:4px;right:4px;bottom:4px;border-radius:8px;text-align:center">※掲載写真は最終確認待ち</span></div>
+      <div class="ph w-[118px] shrink-0"><img src="./img/matsuoka-ishi.png" alt="監修 眼科専門医" data-plan="監修の眼科専門医ご本人の写真（白衣・診察室などで撮影）" data-why="実在の人物はAI生成では代替できず、実写撮影が必須。掲載可否・肩書の確定後に差し替え" data-pos="" onerror="imgFb(this)"><span class="ph-badge" style="left:4px;right:4px;bottom:4px;border-radius:8px;text-align:center">※掲載写真は最終確認待ち</span></div>
       <div class="p-4">
         <p class="text-[10px] font-bold text-gold2 tracking-widest">SUPERVISOR</p>
         <p class="mincho text-[15px] font-bold text-deep mt-0.5">眼科専門医【実名】</p>
@@ -260,7 +264,7 @@ tailwind.config = {
       </div>
     </article>
     <article class="rounded-2xl bg-white border border-[#eadff5] overflow-hidden flex reveal">
-      <div class="ph w-[118px] shrink-0"><img src="./img/ceo-tatsuno.png" alt="商品開発者 辰野元信" onerror="this.style.display='none'"><span class="ph-badge" style="left:4px;right:4px;bottom:4px;border-radius:8px;text-align:center">※掲載写真は最終確認待ち</span></div>
+      <div class="ph w-[118px] shrink-0"><img src="./img/ceo-tatsuno.png" alt="商品開発者 辰野元信" data-plan="商品開発者・辰野元信の写真（撮影またはご本人提供）" data-why="実在の人物はAI生成では代替できず、誤認防止のため実写のみ。掲載可否の最終確認待ち" data-pos="" onerror="imgFb(this)"><span class="ph-badge" style="left:4px;right:4px;bottom:4px;border-radius:8px;text-align:center">※掲載写真は最終確認待ち</span></div>
       <div class="p-4">
         <p class="text-[10px] font-bold text-gold2 tracking-widest">DEVELOPER</p>
         <p class="mincho text-[15px] font-bold text-deep mt-0.5">辰野 元信</p>
@@ -466,7 +470,16 @@ tailwind.config = {
 function imgFb(el){
   var fb = el.getAttribute('data-fb');
   if (fb && el.getAttribute('data-tried') !== '1') { el.setAttribute('data-tried','1'); el.src = fb; }
-  else { el.style.display = 'none'; }
+  else {
+    el.style.display = 'none';
+    var p = el.parentNode;
+    if (p && !p.querySelector('.ph-note')) {
+      var n = document.createElement('div');
+      n.className = 'ph-note' + (el.getAttribute('data-pos') === 'top' ? ' top' : '');
+      n.innerHTML = '<b>【入れる画像の予定】</b>' + el.getAttribute('data-plan') + '<br><b>【AI生成が難しい理由】</b>' + el.getAttribute('data-why');
+      p.insertBefore(n, p.firstChild);
+    }
+  }
 }
 
 /* 30日カレンダー: 縦5行×横6列=30マス。1〜5=達成シール */
