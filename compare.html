@@ -200,7 +200,6 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 
   <div class="chart"><h3>ルテインの量（1日）</h3><div class="u">mg／日（多いほど長い）</div><div id="c-lu"></div></div>
   <div class="chart"><h3>30日あたりの価格（通常）</h3><div class="u">円・税込（短いほど安い）　※カシス-i EX は20日分の換算</div><div id="c-p"></div></div>
-  <div class="chart"><h3>定期・キャンペーンの30日価格</h3><div class="u">円・税込（短いほど安い）　※わたしのカシスはキャンペーン価格（仮設定）、メクリアは定期の記載（確認中）</div><div id="c-p2"></div></div>
   <div class="chart"><h3>1日に飲む粒数</h3><div class="u">粒／日（短いほど少ない）　※わたしのカシスは継続時。初月は2粒が目安</div><div id="c-n"></div></div>
 </section>
 
@@ -212,9 +211,12 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 
 <section class="step" aria-labelledby="s6">
   <h2 id="s6">いま総合的に選ぶなら。</h2>
+  <p>ここまでの結果は、価格（通常）とルテインの量ではメクリア、届出のある商品ではカシスアイ、1日の粒数ではわたしのカシスでした。ところが、<b>いま、わたしのカシスはキャンペーン中</b>です。いまの価格で並べ直すと、順番が変わります。</p>
+  <div class="chart"><h3>いまの30日価格（定期・キャンペーン）</h3><div class="u">円・税込（短いほど安い）　※わたしのカシスはキャンペーン価格（仮設定）、メクリアは定期の記載（確認中）</div><div id="c-p2"></div></div>
+
   <div class="final">
     <h3>1日の粒数も、価格も。いま両方かなうのは、わたしのカシスです。</h3>
-    <p>ルテインの量を重視するなら、メクリアです（20mg）。届出のある商品から選ぶなら、カシスアイです。それぞれに、向いている人がいます。</p>
+    <p>ルテインの量を重視するなら、メクリアです（20mg）。届出のある商品から選ぶなら、カシスアイです。それぞれに、向いている人がいます。通常の価格だけで比べるなら、メクリアが安い、という結果も変わりません。</p>
     <p>一方で、<b>「1日の粒数を減らしたい」と「価格を重視したい」の両方</b>を叶えられる商品は、この4商品の中では、キャンペーン中のわたしのカシスだけです。</p>
     <ul>
       <li><b>1日1粒で済みます。</b>継続時に1日1粒なのは、わたしのカシスだけです（初月は2粒が目安）。</li>
@@ -236,7 +238,7 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 <section class="step" aria-labelledby="co">
   <h2 id="co" style="font-size:17px">運営者について</h2>
   <dl class="co"><dt>運営会社</dt><dd>株式会社Univein</dd><dt>代表者</dt><dd>辰野 元信</dd><dt>運営の立場</dt><dd>「わたしのカシス」の販売事業者。本サイトの比較対象に自社商品を含みます。</dd><dt>広告について</dt><dd>各商品へのリンクは広告を含みます。</dd><dt>所在地・連絡先</dt><dd>（公開前に記載）</dd></dl>
-  <ul class="log"><li><b>2026-11-12</b>　優先順位を大きなボタンに変更。キャンペーン価格（仮設定）を追加</li><li><b>2026-11-12</b>　商品ごとの特徴、グラフ、よくある質問を追加</li><li><b>2026-11-10</b>　初版（社内ドラフト）。価格・仕様の確認日は2026-11-10</li></ul>
+  <ul class="log"><li><b>2026-11-12</b>　優先順位を大きなボタンに変更。価格はメクリアが先に勝ち、結論でキャンペーン中のわたしのカシスを提案する流れに変更（キャンペーン価格は仮設定）</li><li><b>2026-11-12</b>　商品ごとの特徴、グラフ、よくある質問を追加</li><li><b>2026-11-10</b>　初版（社内ドラフト）。価格・仕様の確認日は2026-11-10</li></ul>
 </section>
 
 <section class="step" aria-labelledby="h-src">
@@ -257,11 +259,11 @@ var P=[
  {id:'eye',name:'ヘルスエイド カシスアイ',maker:'森下仁丹',cat:'機能性表示食品（E453）',per:'3粒',ac:'50mg',lu:'10mg',p30:'4,860円',p30n:'社内調査 10/21・要再確認',day:'約162円',first:'確認中',ret:'確認中',q:'ヘルスエイド カシスアイ'},
  {id:'ex',name:'カシス-i EX',maker:'森下仁丹',cat:'機能性表示なし',per:'3粒',ac:'50mg',lu:'12mg',p30:'5,670円',p30n:'20日分3,780円の換算（2018年の希望小売）',day:'約189円',first:'確認中',ret:'確認中',q:'カシス-i EX'},
  {id:'mec',name:'メクリア',maker:'リアルメイト',cat:'栄養機能食品（ビタミンA）と記載・確認中',per:'2粒',ac:'50mg',lu:'20mg',p30:'3,780円',p30n:'通常。定期は2,980円前後と記載（出典間で差）',day:'約126円',first:'1,980円と記載（確認中）',ret:'確認中',q:'メクリア リアルメイト'},
- {id:'me',name:'わたしのカシス',maker:'Univein',cat:'一般食品',per:'1粒',pern:'継続時。初月は2粒が目安',ac:'50mg',lu:'10mg',p30:'4,780円',p30n:'定価。キャンペーン価格（仮）は2,480円',day:'約159円（キャンペーン価格（仮）は約83円）',camp:'2,480円（税込・送料無料）',first:'1,980円（税込・送料無料）',ret:'初回分は到着後30日以内なら全額返金（開封後可・返送不要）',q:'わたしのカシス',me:true}
+ {id:'me',name:'わたしのカシス',maker:'Univein',cat:'一般食品',per:'1粒',pern:'継続時。初月は2粒が目安',ac:'50mg',lu:'10mg',p30:'4,780円',p30n:'定価',day:'約159円',first:'1,980円（税込・送料無料）',ret:'初回分は到着後30日以内なら全額返金（開封後可・返送不要）',q:'わたしのカシス',me:true}
 ];
 var PRIO=[
  {k:'one',t:'1日の粒数を減らしたい',sub:'毎日が手軽なもの',who:'わたしのカシス',why:'継続時に1日1粒なのは、この4商品ではわたしのカシスだけです。ほかの3商品は1日2〜3粒です。初月は2粒が目安です。',me:true},
- {k:'price',t:'価格を重視したい',sub:'安く続けたい',who:'わたしのカシス',why:'キャンペーン価格（仮）は30日2,480円（税込・送料無料）で、メクリアの定期（2,980円前後・確認中）や通常価格（3,780円）を下回ります。通常の定価（4,780円）で比べると、メクリアが安くなります。',me:true,camp:true},
+ {k:'price',t:'価格を重視したい',sub:'安く続けたい',who:'メクリア',why:'30日価格（通常）は、この4商品のうちメクリアが最も低い3,780円で、ルテインの量も最も多い20mgです。定期は2,980円前後と記載されています（確認中）。わたしのカシスの通常の定価は4,780円で、高い側です。',link:true},
  {k:'lu',t:'ルテインの量を重視したい',sub:'量が多いものがいい',who:'メクリア',why:'ルテインは1日20mgで、この4商品のうち最も多い量です。わたしのカシスは10mgで、カシスアイと同じ量です。'},
  {k:'fn',t:'機能性表示食品から選びたい',sub:'届出のある商品',who:'ヘルスエイド カシスアイ',why:'この4商品のうち、機能性表示食品（届出番号E453）はカシスアイだけです。わたしのカシスは一般食品です。'},
  {k:'try',t:'まず試してみたい',sub:'初回の条件で選ぶ',who:'わたしのカシス',why:'初回は1,980円（税込・送料無料）で、初回分は到着後30日以内なら全額返金です（開封後可・返送不要）。ほかの商品の初回条件・返金条件は確認中です。',me:true}
@@ -273,13 +275,13 @@ function renderPrio(first){
  pr.querySelectorAll('button').forEach(function(b){b.onclick=function(){cur=b.dataset.k;renderPrio(false)}});
  var p=PRIO.filter(function(x){return x.k===cur})[0],pd=P.filter(function(x){return x.name===p.who})[0];
  var el=document.getElementById('answer');
- el.innerHTML='<div class="q">「'+p.t+'」なら</div><div class="a">'+p.who+'</div><p>'+p.why+'</p>'+(p.camp?'<div class="camp">キャンペーン価格（仮） <b>2,480円</b>／30日（税込・送料無料）<span class="ribbon">仮設定</span></div>':'')+btns(pd.q,pd.me);
+ el.innerHTML='<div class="q">「'+p.t+'」なら</div><div class="a">'+p.who+'</div><p>'+p.why+'</p>'+(p.link?'<p style="margin-top:10px"><a href="#s6" style="font-weight:700">▶ ただし、いまだけ安くなっている商品があります。結論を見る</a></p>':'')+btns(pd.q,pd.me);
  el.classList.remove('flash');if(first!==true){void el.offsetWidth;el.classList.add('flash')}
 }
 function renderTbl(){
- var rows=[['区分','cat'],['1日の粒数','per'],['カシス由来アントシアニン／日','ac'],['ルテイン／日','lu'],['30日価格','p30'],['1日あたり','day'],['キャンペーン価格（仮）','campv'],['初回の価格','first'],['返金','ret']];
+ var rows=[['区分','cat'],['1日の粒数','per'],['カシス由来アントシアニン／日','ac'],['ルテイン／日','lu'],['30日価格','p30'],['1日あたり','day'],['初回の価格','first'],['返金','ret']];
  var t='<thead><tr><th></th>'+P.map(function(p){return '<th class="'+(p.me?'me':'')+'">'+p.name+'<small style="font-weight:400;color:var(--muted);display:block">'+p.maker+'</small></th>'}).join('')+'</tr></thead><tbody>';
- rows.forEach(function(r){t+='<tr><th>'+r[0]+'</th>'+P.map(function(p){var note=r[1]==='per'&&p.pern?'<small>'+p.pern+'</small>':r[1]==='p30'?'<small>'+p.p30n+'</small>':'';var val=r[1]==='campv'?(p.camp?p.camp+'<small>仮設定</small>':'—'):p[r[1]];return '<td class="'+(p.me?'me':'')+'">'+val+note+'</td>'}).join('')+'</tr>'});
+ rows.forEach(function(r){t+='<tr><th>'+r[0]+'</th>'+P.map(function(p){var note=r[1]==='per'&&p.pern?'<small>'+p.pern+'</small>':r[1]==='p30'?'<small>'+p.p30n+'</small>':'';return '<td class="'+(p.me?'me':'')+'">'+p[r[1]]+note+'</td>'}).join('')+'</tr>'});
  document.getElementById('tbl').innerHTML=t+'</tbody>';
 }
 renderPrio(true);renderTbl();
@@ -294,7 +296,7 @@ var PF=[
  {n:'ヘルスエイド カシスアイ',mk:'森下仁丹',g:['機能性表示食品（E453）','カシスアントシアニン50mg・ルテイン10mgが数字で表示されている','メーカーの知名度が高い'],b:['1日3粒','価格が4商品の中で高い側（4,860円・要再確認）'],f:'届出のある商品から選びたい人'},
  {n:'カシス-i EX',mk:'森下仁丹',g:['ルテイン12mg','カシスアントシアニン50mg'],b:['1日3粒','機能性表示ではない','20日分の商品で、30日あたりでは5,670円相当（換算）'],f:'森下仁丹のブランドで、ルテイン12mgを選びたい人'},
  {n:'メクリア',mk:'リアルメイト',g:['ルテインが20mgと最も多い','30日価格（通常）が最も低い（3,780円）','定期は2,980円前後と記載（確認中）'],b:['1日2粒','表示区分は確認中（栄養機能食品の記載が多い）'],f:'価格とルテインの量を優先したい人'},
- {n:'わたしのカシス',mk:'Univein（当サイトの運営会社）',me:true,g:['継続時は1日1粒（初月は2粒が目安）','ルテイン10mg・カシス由来アントシアニン50mg','初回1,980円・初回分は30日以内なら全額返金','キャンペーン価格（仮）2,480円／30日は、この4商品で最も低い','植物由来カプセル（HPMC）。国内GMP認定工場で製造'],b:['一般食品（機能性表示食品ではない）','通常の定価（4,780円）は4商品の中で2番目に高い（キャンペーン価格は仮設定の2,480円）','ルテインの量はメクリアの半分'],f:'毎日の粒数を増やしたくない人、まず初回で試したい人'}
+ {n:'わたしのカシス',mk:'Univein（当サイトの運営会社）',me:true,g:['継続時は1日1粒（初月は2粒が目安）','ルテイン10mg・カシス由来アントシアニン50mg','初回1,980円・初回分は30日以内なら全額返金','いまはキャンペーン中で、価格は4商品で最も低い（仮設定）','植物由来カプセル（HPMC）。国内GMP認定工場で製造'],b:['一般食品（機能性表示食品ではない）','通常の定価（4,780円）は4商品の中で2番目に高い（いまはキャンペーン中）','ルテインの量はメクリアの半分'],f:'毎日の粒数を増やしたくない人、まず初回で試したい人'}
 ];
 document.getElementById('prof').innerHTML=PF.map(function(p){return '<article class="pf'+(p.me?' me':'')+'"><h3>'+p.n+'</h3><div class="mk">'+p.mk+'</div><div class="cols"><div class="good"><b>いいところ</b><ul>'+p.g.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div><div class="bad"><b>気になるところ</b><ul>'+p.b.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div></div><div class="for"><b>向いている人：</b>'+p.f+'</div></article>'}).join('');
 var FQ=[
