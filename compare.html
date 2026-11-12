@@ -266,16 +266,17 @@ var PRIO=[
  {k:'price',t:'価格を重視したい',sub:'安く続けたい',who:'メクリア',why:'30日価格（通常）は、この4商品のうちメクリアが最も低い3,780円で、ルテインの量も最も多い20mgです。定期は2,980円前後と記載されています（確認中）。わたしのカシスの通常の定価は4,780円で、高い側です。',link:true},
  {k:'lu',t:'ルテインの量を重視したい',sub:'量が多いものがいい',who:'メクリア',why:'ルテインは1日20mgで、この4商品のうち最も多い量です。わたしのカシスは10mgで、カシスアイと同じ量です。'},
  {k:'fn',t:'機能性表示食品から選びたい',sub:'届出のある商品',who:'ヘルスエイド カシスアイ',why:'この4商品のうち、機能性表示食品（届出番号E453）はカシスアイだけです。わたしのカシスは一般食品です。'},
- {k:'try',t:'まず試してみたい',sub:'初回の条件で選ぶ',who:'わたしのカシス',why:'初回は1,980円（税込・送料無料）で、初回分は到着後30日以内なら全額返金です（開封後可・返送不要）。ほかの商品の初回条件・返金条件は確認中です。',me:true}
+ {k:'try',t:'まず試してみたい',sub:'初回の条件で選ぶ',who:'メクリア ／ わたしのカシス',whos:['メクリア','わたしのカシス'],why:'初回1,980円（税込）で始められる点は、メクリアとわたしのカシスで同じです（メクリアの初回価格は記載あり・確認中）。違いは返金です。わたしのカシスは、初回分は到着後30日以内なら全額返金（開封後可・返送不要）と明記しています。メクリアの返金条件は確認中です。カシスアイと カシス-i EX の初回条件も確認中です。'}
 ];
 var cur='one';
 function btns(q,me){var e=encodeURIComponent(q);return '<div class="btns">'+(me?'<a class="btn main" href="https://www.l-o-e.jp/collections/all" target="_blank" rel="noopener">初回1,980円で始める（公式ストア）</a>':'')+'<a class="btn" target="_blank" rel="noopener sponsored" href="https://www.amazon.co.jp/s?k='+e+'">Amazonで見る</a><a class="btn" target="_blank" rel="noopener sponsored" href="https://search.rakuten.co.jp/search/mall/'+e+'/">楽天市場で見る</a></div>'}
 function renderPrio(first){
  var pr=document.getElementById('prio');pr.innerHTML=PRIO.map(function(p){return '<button class="tile" aria-pressed="'+(cur===p.k)+'" data-k="'+p.k+'">'+p.t+'<small>'+p.sub+'</small></button>'}).join('');
  pr.querySelectorAll('button').forEach(function(b){b.onclick=function(){cur=b.dataset.k;renderPrio(false)}});
- var p=PRIO.filter(function(x){return x.k===cur})[0],pd=P.filter(function(x){return x.name===p.who})[0];
+ var p=PRIO.filter(function(x){return x.k===cur})[0];
+ var names=p.whos||[p.who],pds=names.map(function(n){return P.filter(function(x){return x.name===n})[0]});
  var el=document.getElementById('answer');
- el.innerHTML='<div class="q">「'+p.t+'」なら</div><div class="a">'+p.who+'</div><p>'+p.why+'</p>'+(p.link?'<p style="margin-top:10px"><a href="#s6" style="font-weight:700">▶ ただし、いまだけ安くなっている商品があります。結論を見る</a></p>':'')+btns(pd.q,pd.me);
+ el.innerHTML='<div class="q">「'+p.t+'」なら</div><div class="a">'+p.who+'</div><p>'+p.why+'</p>'+(p.link?'<p style="margin-top:10px"><a href="#s6" style="font-weight:700">▶ ただし、いまだけ安くなっている商品があります。結論を見る</a></p>':'')+pds.map(function(pd){return (pds.length>1?'<div style="margin-top:12px;font-weight:700;font-size:13px">'+pd.name+'</div>':'')+btns(pd.q,pd.me)}).join('');
  el.classList.remove('flash');if(first!==true){void el.offsetWidth;el.classList.add('flash')}
 }
 function renderTbl(){
@@ -295,7 +296,7 @@ bars('c-n','nn',3,function(v){return v+'粒'});
 var PF=[
  {n:'ヘルスエイド カシスアイ',mk:'森下仁丹',g:['機能性表示食品（E453）','カシスアントシアニン50mg・ルテイン10mgが数字で表示されている','メーカーの知名度が高い'],b:['1日3粒','価格が4商品の中で高い側（4,860円・要再確認）'],f:'届出のある商品から選びたい人'},
  {n:'カシス-i EX',mk:'森下仁丹',g:['ルテイン12mg','カシスアントシアニン50mg'],b:['1日3粒','機能性表示ではない','20日分の商品で、30日あたりでは5,670円相当（換算）'],f:'森下仁丹のブランドで、ルテイン12mgを選びたい人'},
- {n:'メクリア',mk:'リアルメイト',g:['ルテインが20mgと最も多い','30日価格（通常）が最も低い（3,780円）','定期は2,980円前後と記載（確認中）'],b:['1日2粒','表示区分は確認中（栄養機能食品の記載が多い）'],f:'価格とルテインの量を優先したい人'},
+ {n:'メクリア',mk:'リアルメイト',g:['ルテインが20mgと最も多い','30日価格（通常）が最も低い（3,780円）','定期は2,980円前後と記載（確認中）','初回1,980円と記載（確認中）'],b:['1日2粒','表示区分は確認中（栄養機能食品の記載が多い）'],f:'価格とルテインの量を優先したい人'},
  {n:'わたしのカシス',mk:'Univein（当サイトの運営会社）',me:true,g:['継続時は1日1粒（初月は2粒が目安）','ルテイン10mg・カシス由来アントシアニン50mg','初回1,980円・初回分は30日以内なら全額返金','いまはキャンペーン中で、価格は4商品で最も低い（仮設定）','植物由来カプセル（HPMC）。国内GMP認定工場で製造'],b:['一般食品（機能性表示食品ではない）','通常の定価（4,780円）は4商品の中で2番目に高い（いまはキャンペーン中）','ルテインの量はメクリアの半分'],f:'毎日の粒数を増やしたくない人、まず初回で試したい人'}
 ];
 document.getElementById('prof').innerHTML=PF.map(function(p){return '<article class="pf'+(p.me?' me':'')+'"><h3>'+p.n+'</h3><div class="mk">'+p.mk+'</div><div class="cols"><div class="good"><b>いいところ</b><ul>'+p.g.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div><div class="bad"><b>気になるところ</b><ul>'+p.b.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div></div><div class="for"><b>向いている人：</b>'+p.f+'</div></article>'}).join('');
