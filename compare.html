@@ -51,10 +51,25 @@ h2{font-size:21px;font-weight:800;margin-top:4px}
 .pc b{font-size:14.5px}
 .pc.me{border:2px solid var(--gold);background:var(--goldsoft)}
 .excl{margin-top:12px;font-size:12.5px;color:var(--muted);line-height:1.8}
-.prio{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.chip{all:unset;box-sizing:border-box;cursor:pointer;padding:9px 14px;border:1.5px solid var(--line);border-radius:999px;font-size:13.5px;background:var(--card)}
-.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
-.chip:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.pick{margin:18px calc(-1 * max(16px,env(safe-area-inset-left,0px))) 0;padding:20px max(16px,env(safe-area-inset-left,0px)) 22px;background:var(--soft);border-block:2px solid var(--accent)}
+.pick-lead{font-family:var(--f-head);font-size:19px;font-weight:800;line-height:1.5;text-align:center}
+.pick-sub{margin:6px 0 0;text-align:center;font-size:13px;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.tile{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;flex-direction:column;justify-content:center;gap:2px;min-height:78px;padding:12px 38px 12px 14px;border:2px solid var(--line);border-radius:14px;background:var(--card);font-weight:700;font-size:15px;line-height:1.45;box-shadow:0 3px 0 var(--line);transition:transform .12s,box-shadow .12s}
+.tile small{font-weight:400;font-size:11.5px;color:var(--muted)}
+.tile::after{content:"";position:absolute;right:12px;top:50%;width:20px;height:20px;margin-top:-10px;border-radius:50%;border:2px solid var(--line)}
+.tile:active{transform:translateY(2px);box-shadow:0 1px 0 var(--line)}
+.tile[aria-pressed="true"]{border-color:var(--accent);background:var(--accent);color:var(--accent-fg);box-shadow:0 3px 0 color-mix(in srgb,var(--accent) 60%,#000)}
+.tile[aria-pressed="true"] small{color:inherit;opacity:.85}
+.tile[aria-pressed="true"]::after{content:"✓";display:flex;align-items:center;justify-content:center;background:var(--gold);border-color:var(--gold);color:#34194F;font-size:13px;line-height:1}
+.tile:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.pick-arrow{margin-top:12px;text-align:center;font-size:12.5px;color:var(--accent);font-weight:700}
+.answer.flash{animation:flash .45s ease}
+@keyframes flash{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.answer.flash{animation:none}.tile{transition:none}}
+.ribbon{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:var(--ng);color:#fff;font-size:11px;font-weight:700;vertical-align:middle}
+.camp{margin-top:10px;padding:12px 14px;border-radius:12px;background:var(--goldsoft);border:1.5px dashed var(--gold);font-size:13.5px;line-height:1.8}
+.camp b{font-family:var(--f-head);font-size:22px}
 .answer{margin-top:14px;padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
 .answer .q{font-size:12.5px;color:var(--muted)}
 .answer .a{font-family:var(--f-head);font-size:19px;font-weight:800;margin-top:2px}
@@ -114,15 +129,15 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 .q .ans{padding:0 14px 14px;font-size:13.5px;line-height:1.85}
 .q .ans[hidden]{display:none}
 .co{margin-top:12px;font-size:13px}
-.co dt{float:left;clear:left;width:6.5em;color:var(--muted)}.co dd{margin:0 0 6px 6.5em}
+.co{display:grid;grid-template-columns:8.5em 1fr;gap:4px 8px}.co dt{color:var(--muted)}.co dd{margin:0}
 .log{margin:10px 0 0;padding:0;list-style:none;font-size:12.5px}
 .log li{padding:6px 0;border-top:1px dashed var(--line)}
-@media (max-width:420px){.pf .cols{grid-template-columns:1fr}.bar{grid-template-columns:88px 1fr}}
+@media (max-width:420px){.pf .cols{grid-template-columns:1fr}.bar{grid-template-columns:88px 1fr}.tiles{gap:8px}.tile{font-size:14px;padding-right:34px}}
 @media (max-width:420px){.pair{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="disclose"><div class="wrap"><b>運営：株式会社Univein。</b>本サイトは「わたしのカシス」の販売事業者が運営しており、比較対象に自社商品を含みます。各商品へのリンクは広告を含みます。（社内ドラフト）</div></div>
+<div class="disclose"><div class="wrap"><b>運営：株式会社Univein。</b>本サイトは「わたしのカシス」の販売事業者が運営しており、比較対象に自社商品を含みます。各商品へのリンクは広告を含みます。（社内ドラフト・<b>キャンペーン価格は仮設定</b>）</div></div>
 
 <nav class="nav" aria-label="ページ内の移動"><a href="#s1">ルテインの選び方</a><a href="#s2">カシス</a><a href="#s3">比べる商品</a><a href="#s4">優先順位</a><a href="#s5">グラフと表</a><a href="#s7">商品ごとの特徴</a><a href="#s6">結論</a><a href="#faq">よくある質問</a></nav>
 <div class="wrap">
@@ -166,9 +181,14 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 <section class="step" aria-labelledby="s4">
   <div class="stepno">4 / 5　優先順位で選ぶ</div>
   <h2 id="s4">あなたが優先したいことは、<br>どれですか。</h2>
-  <p>選ぶ基準は人それぞれです。優先順位ごとに、この4商品の中で当てはまる商品を示します。</p>
-  <div class="prio" id="prio" role="group" aria-label="優先順位"></div>
-  <div class="answer" id="answer" aria-live="polite"></div>
+  <p>選ぶ基準は人それぞれです。下のボタンを押すと、その優先順位で、この4商品の中から当てはまる商品が表示されます。</p>
+  <div class="pick">
+    <div class="pick-lead">あなたの優先順位をタップ</div>
+    <p class="pick-sub">ボタンを押すたびに、下の答えが入れ替わります</p>
+    <div class="tiles" id="prio" role="group" aria-label="優先順位"></div>
+    <div class="pick-arrow" aria-hidden="true">▼　あなたへの答え</div>
+    <div class="answer" id="answer" aria-live="polite"></div>
+  </div>
 </section>
 
 <section class="step" aria-labelledby="s5">
@@ -180,6 +200,7 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 
   <div class="chart"><h3>ルテインの量（1日）</h3><div class="u">mg／日（多いほど長い）</div><div id="c-lu"></div></div>
   <div class="chart"><h3>30日あたりの価格（通常）</h3><div class="u">円・税込（短いほど安い）　※カシス-i EX は20日分の換算</div><div id="c-p"></div></div>
+  <div class="chart"><h3>定期・キャンペーンの30日価格</h3><div class="u">円・税込（短いほど安い）　※わたしのカシスはキャンペーン価格（仮設定）、メクリアは定期の記載（確認中）</div><div id="c-p2"></div></div>
   <div class="chart"><h3>1日に飲む粒数</h3><div class="u">粒／日（短いほど少ない）　※わたしのカシスは継続時。初月は2粒が目安</div><div id="c-n"></div></div>
 </section>
 
@@ -190,19 +211,20 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 </section>
 
 <section class="step" aria-labelledby="s6">
-  <h2 id="s6">それでも、いま総合的に選ぶなら。</h2>
+  <h2 id="s6">いま総合的に選ぶなら。</h2>
   <div class="final">
-    <h3>わたしのカシスをおすすめします。</h3>
-    <p>価格だけで選ぶなら、メクリアが安く、ルテインの量が多いのもメクリアです。届出のある商品から選ぶなら、カシスアントシアニンとルテインを含む機能性表示食品は、カシスアイです。</p>
-    <p>そのうえで、わたしのカシスをおすすめする理由は次の2つです。</p>
+    <h3>1日の粒数も、価格も。いま両方かなうのは、わたしのカシスです。</h3>
+    <p>ルテインの量を重視するなら、メクリアです（20mg）。届出のある商品から選ぶなら、カシスアイです。それぞれに、向いている人がいます。</p>
+    <p>一方で、<b>「1日の粒数を減らしたい」と「価格を重視したい」の両方</b>を叶えられる商品は、この4商品の中では、キャンペーン中のわたしのカシスだけです。</p>
     <ul>
-      <li><b>1日1粒で済みます。</b>この4商品のうち、継続時に1日1粒なのはわたしのカシスだけです（初月は2粒が目安）。</li>
+      <li><b>1日1粒で済みます。</b>継続時に1日1粒なのは、わたしのカシスだけです（初月は2粒が目安）。</li>
+      <li><b>キャンペーン価格（仮）は30日2,480円。</b>メクリアの定期（2,980円前後・確認中）も、通常価格（3,780円）も下回ります。<span class="ribbon">仮設定</span></li>
       <li><b>初回は1,980円で始められ、初回分は30日以内なら全額返金です。</b>開封後も対象で、返送は不要です。</li>
     </ul>
-    <div class="offer">初回限定（定期購入） <b>1,980円</b>（税込・送料無料）<br><span style="font-size:12.5px">2回目以降は30日ごとに1袋 3,824円（税込）・送料無料。回数の縛りなし。解約・スキップは次回発送予定日の7日前まで。返金は初回分のみ、返金のお申し込みだけでは定期は止まりません。</span></div>
+    <div class="offer">初回限定（定期購入） <b>1,980円</b>（税込・送料無料）<br>2回目以降 キャンペーン価格（仮） <b style="font-size:22px">2,480円</b>／30日（税込・送料無料）<span class="ribbon">仮設定</span><br><span style="font-size:12.5px">キャンペーン終了後の継続価格は3,824円（税込・送料無料）です。回数の縛りなし。解約・スキップは次回発送予定日の7日前まで。返金は初回分のみ、返金のお申し込みだけでは定期は止まりません。キャンペーンの期間と条件はドラフト（仮）です。</span></div>
     <div class="btns"><a class="btn main" id="official" href="https://www.l-o-e.jp/collections/all" target="_blank" rel="noopener">初回1,980円で始める（公式ストア）</a>
     <a class="btn" target="_blank" rel="noopener sponsored" href="https://www.amazon.co.jp/s?k=%E3%82%8F%E3%81%9F%E3%81%97%E3%81%AE%E3%82%AB%E3%82%B7%E3%82%B9">Amazonで見る</a><a class="btn" target="_blank" rel="noopener sponsored" href="https://search.rakuten.co.jp/search/mall/%E3%82%8F%E3%81%9F%E3%81%97%E3%81%AE%E3%82%AB%E3%82%B7%E3%82%B9/">楽天市場で見る</a></div>
-    <p class="note">メクリアも、初回1,980円と記載されているページがあります（確認中）。条件は、各商品のページで確認してから選んでください。</p>
+    <p class="note">メクリアも、初回1,980円と記載されているページがあります（確認中）。キャンペーン価格は社内ドラフトの仮設定で、実際の販売条件ではありません。各商品の条件は、各ページで確認してから選んでください。</p>
   </div>
 </section>
 
@@ -214,7 +236,7 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 <section class="step" aria-labelledby="co">
   <h2 id="co" style="font-size:17px">運営者について</h2>
   <dl class="co"><dt>運営会社</dt><dd>株式会社Univein</dd><dt>代表者</dt><dd>辰野 元信</dd><dt>運営の立場</dt><dd>「わたしのカシス」の販売事業者。本サイトの比較対象に自社商品を含みます。</dd><dt>広告について</dt><dd>各商品へのリンクは広告を含みます。</dd><dt>所在地・連絡先</dt><dd>（公開前に記載）</dd></dl>
-  <ul class="log"><li><b>2026-11-12</b>　商品ごとの特徴、グラフ、よくある質問を追加</li><li><b>2026-11-10</b>　初版（社内ドラフト）。価格・仕様の確認日は2026-11-10</li></ul>
+  <ul class="log"><li><b>2026-11-12</b>　優先順位を大きなボタンに変更。キャンペーン価格（仮設定）を追加</li><li><b>2026-11-12</b>　商品ごとの特徴、グラフ、よくある質問を追加</li><li><b>2026-11-10</b>　初版（社内ドラフト）。価格・仕様の確認日は2026-11-10</li></ul>
 </section>
 
 <section class="step" aria-labelledby="h-src">
@@ -235,41 +257,44 @@ var P=[
  {id:'eye',name:'ヘルスエイド カシスアイ',maker:'森下仁丹',cat:'機能性表示食品（E453）',per:'3粒',ac:'50mg',lu:'10mg',p30:'4,860円',p30n:'社内調査 10/21・要再確認',day:'約162円',first:'確認中',ret:'確認中',q:'ヘルスエイド カシスアイ'},
  {id:'ex',name:'カシス-i EX',maker:'森下仁丹',cat:'機能性表示なし',per:'3粒',ac:'50mg',lu:'12mg',p30:'5,670円',p30n:'20日分3,780円の換算（2018年の希望小売）',day:'約189円',first:'確認中',ret:'確認中',q:'カシス-i EX'},
  {id:'mec',name:'メクリア',maker:'リアルメイト',cat:'栄養機能食品（ビタミンA）と記載・確認中',per:'2粒',ac:'50mg',lu:'20mg',p30:'3,780円',p30n:'通常。定期は2,980円前後と記載（出典間で差）',day:'約126円',first:'1,980円と記載（確認中）',ret:'確認中',q:'メクリア リアルメイト'},
- {id:'me',name:'わたしのカシス',maker:'Univein',cat:'一般食品',per:'1粒',pern:'継続時。初月は2粒が目安',ac:'50mg',lu:'10mg',p30:'4,780円',p30n:'定価。定期は3,824円',day:'約159円（定期は約127円）',first:'1,980円（税込・送料無料）',ret:'初回分は到着後30日以内なら全額返金（開封後可・返送不要）',q:'わたしのカシス',me:true}
+ {id:'me',name:'わたしのカシス',maker:'Univein',cat:'一般食品',per:'1粒',pern:'継続時。初月は2粒が目安',ac:'50mg',lu:'10mg',p30:'4,780円',p30n:'定価。キャンペーン価格（仮）は2,480円',day:'約159円（キャンペーン価格（仮）は約83円）',camp:'2,480円（税込・送料無料）',first:'1,980円（税込・送料無料）',ret:'初回分は到着後30日以内なら全額返金（開封後可・返送不要）',q:'わたしのカシス',me:true}
 ];
 var PRIO=[
- {k:'one',t:'1日の粒数を減らしたい',who:'わたしのカシス',why:'継続時に1日1粒なのは、この4商品ではわたしのカシスだけです。ほかの3商品は1日2〜3粒です。初月は2粒が目安です。',me:true},
- {k:'price',t:'価格を重視したい',who:'メクリア',why:'30日価格（通常）は、この4商品のうちメクリアが最も低く、ルテインの量も最も多い20mgです。わたしのカシスの定価は4,780円で、高い側です。初回の価格は、どちらも1,980円と記載されています。'},
- {k:'lu',t:'ルテインの量を重視したい',who:'メクリア',why:'ルテインは1日20mgで、この4商品のうち最も多い量です。わたしのカシスは10mgで、カシスアイと同じ量です。'},
- {k:'fn',t:'機能性表示食品から選びたい',who:'ヘルスエイド カシスアイ',why:'この4商品のうち、機能性表示食品（届出番号E453）はカシスアイだけです。わたしのカシスは一般食品です。'},
- {k:'try',t:'まず試してみたい',who:'わたしのカシス',why:'初回は1,980円（税込・送料無料）で、初回分は到着後30日以内なら全額返金です（開封後可・返送不要）。ほかの商品の初回条件・返金条件は確認中です。',me:true}
+ {k:'one',t:'1日の粒数を減らしたい',sub:'毎日が手軽なもの',who:'わたしのカシス',why:'継続時に1日1粒なのは、この4商品ではわたしのカシスだけです。ほかの3商品は1日2〜3粒です。初月は2粒が目安です。',me:true},
+ {k:'price',t:'価格を重視したい',sub:'安く続けたい',who:'わたしのカシス',why:'キャンペーン価格（仮）は30日2,480円（税込・送料無料）で、メクリアの定期（2,980円前後・確認中）や通常価格（3,780円）を下回ります。通常の定価（4,780円）で比べると、メクリアが安くなります。',me:true,camp:true},
+ {k:'lu',t:'ルテインの量を重視したい',sub:'量が多いものがいい',who:'メクリア',why:'ルテインは1日20mgで、この4商品のうち最も多い量です。わたしのカシスは10mgで、カシスアイと同じ量です。'},
+ {k:'fn',t:'機能性表示食品から選びたい',sub:'届出のある商品',who:'ヘルスエイド カシスアイ',why:'この4商品のうち、機能性表示食品（届出番号E453）はカシスアイだけです。わたしのカシスは一般食品です。'},
+ {k:'try',t:'まず試してみたい',sub:'初回の条件で選ぶ',who:'わたしのカシス',why:'初回は1,980円（税込・送料無料）で、初回分は到着後30日以内なら全額返金です（開封後可・返送不要）。ほかの商品の初回条件・返金条件は確認中です。',me:true}
 ];
 var cur='one';
 function btns(q,me){var e=encodeURIComponent(q);return '<div class="btns">'+(me?'<a class="btn main" href="https://www.l-o-e.jp/collections/all" target="_blank" rel="noopener">初回1,980円で始める（公式ストア）</a>':'')+'<a class="btn" target="_blank" rel="noopener sponsored" href="https://www.amazon.co.jp/s?k='+e+'">Amazonで見る</a><a class="btn" target="_blank" rel="noopener sponsored" href="https://search.rakuten.co.jp/search/mall/'+e+'/">楽天市場で見る</a></div>'}
-function renderPrio(){
- var pr=document.getElementById('prio');pr.innerHTML=PRIO.map(function(p){return '<button class="chip" aria-pressed="'+(cur===p.k)+'" data-k="'+p.k+'">'+p.t+'</button>'}).join('');
- pr.querySelectorAll('button').forEach(function(b){b.onclick=function(){cur=b.dataset.k;renderPrio()}});
+function renderPrio(first){
+ var pr=document.getElementById('prio');pr.innerHTML=PRIO.map(function(p){return '<button class="tile" aria-pressed="'+(cur===p.k)+'" data-k="'+p.k+'">'+p.t+'<small>'+p.sub+'</small></button>'}).join('');
+ pr.querySelectorAll('button').forEach(function(b){b.onclick=function(){cur=b.dataset.k;renderPrio(false)}});
  var p=PRIO.filter(function(x){return x.k===cur})[0],pd=P.filter(function(x){return x.name===p.who})[0];
- document.getElementById('answer').innerHTML='<div class="q">「'+p.t+'」なら</div><div class="a">'+p.who+'</div><p>'+p.why+'</p>'+btns(pd.q,pd.me);
+ var el=document.getElementById('answer');
+ el.innerHTML='<div class="q">「'+p.t+'」なら</div><div class="a">'+p.who+'</div><p>'+p.why+'</p>'+(p.camp?'<div class="camp">キャンペーン価格（仮） <b>2,480円</b>／30日（税込・送料無料）<span class="ribbon">仮設定</span></div>':'')+btns(pd.q,pd.me);
+ el.classList.remove('flash');if(first!==true){void el.offsetWidth;el.classList.add('flash')}
 }
 function renderTbl(){
- var rows=[['区分','cat'],['1日の粒数','per'],['カシス由来アントシアニン／日','ac'],['ルテイン／日','lu'],['30日価格','p30'],['1日あたり','day'],['初回の価格','first'],['返金','ret']];
+ var rows=[['区分','cat'],['1日の粒数','per'],['カシス由来アントシアニン／日','ac'],['ルテイン／日','lu'],['30日価格','p30'],['1日あたり','day'],['キャンペーン価格（仮）','campv'],['初回の価格','first'],['返金','ret']];
  var t='<thead><tr><th></th>'+P.map(function(p){return '<th class="'+(p.me?'me':'')+'">'+p.name+'<small style="font-weight:400;color:var(--muted);display:block">'+p.maker+'</small></th>'}).join('')+'</tr></thead><tbody>';
- rows.forEach(function(r){t+='<tr><th>'+r[0]+'</th>'+P.map(function(p){var note=r[1]==='per'&&p.pern?'<small>'+p.pern+'</small>':r[1]==='p30'?'<small>'+p.p30n+'</small>':'';return '<td class="'+(p.me?'me':'')+'">'+p[r[1]]+note+'</td>'}).join('')+'</tr>'});
+ rows.forEach(function(r){t+='<tr><th>'+r[0]+'</th>'+P.map(function(p){var note=r[1]==='per'&&p.pern?'<small>'+p.pern+'</small>':r[1]==='p30'?'<small>'+p.p30n+'</small>':'';var val=r[1]==='campv'?(p.camp?p.camp+'<small>仮設定</small>':'—'):p[r[1]];return '<td class="'+(p.me?'me':'')+'">'+val+note+'</td>'}).join('')+'</tr>'});
  document.getElementById('tbl').innerHTML=t+'</tbody>';
 }
-renderPrio();renderTbl();
+renderPrio(true);renderTbl();
 function bars(id,key,max,fmtv){var rows=P.map(function(p){var v=p[key];return '<div class="bar'+(p.me?' me':'')+'"><div class="nm">'+p.name+'</div><div class="tr"><div class="fl" style="width:'+Math.max(4,v/max*100)+'%"></div><span class="v">'+fmtv(v)+'</span></div></div>'}).join('');document.getElementById(id).innerHTML=rows}
 var N={eye:{lu:10,pr:4860,n:3},ex:{lu:12,pr:5670,n:3},mec:{lu:20,pr:3780,n:2},me:{lu:10,pr:4780,n:1}};
 P.forEach(function(p){p.nlu=N[p.id].lu;p.npr=N[p.id].pr;p.nn=N[p.id].n});
 bars('c-lu','nlu',20,function(v){return v+'mg'});
 bars('c-p','npr',6000,function(v){return v.toLocaleString('ja-JP')+'円'});
+document.getElementById('c-p2').innerHTML=[['ヘルスエイド カシスアイ',null],['カシス-i EX',null],['メクリア（定期）',2980],['わたしのカシス（キャンペーン・仮）',2480]].map(function(r,i){return '<div class="bar'+(i===3?' me':'')+'"><div class="nm">'+r[0]+'</div><div class="tr">'+(r[1]?'<div class="fl" style="width:'+(r[1]/6000*100)+'%"></div><span class="v">'+r[1].toLocaleString('ja-JP')+'円'+(i===2?'前後':'')+'</span>':'<span class="v" style="font-weight:400;color:var(--muted)">確認中</span>')+'</div></div>'}).join('');
 bars('c-n','nn',3,function(v){return v+'粒'});
 var PF=[
  {n:'ヘルスエイド カシスアイ',mk:'森下仁丹',g:['機能性表示食品（E453）','カシスアントシアニン50mg・ルテイン10mgが数字で表示されている','メーカーの知名度が高い'],b:['1日3粒','価格が4商品の中で高い側（4,860円・要再確認）'],f:'届出のある商品から選びたい人'},
  {n:'カシス-i EX',mk:'森下仁丹',g:['ルテイン12mg','カシスアントシアニン50mg'],b:['1日3粒','機能性表示ではない','20日分の商品で、30日あたりでは5,670円相当（換算）'],f:'森下仁丹のブランドで、ルテイン12mgを選びたい人'},
  {n:'メクリア',mk:'リアルメイト',g:['ルテインが20mgと最も多い','30日価格（通常）が最も低い（3,780円）','定期は2,980円前後と記載（確認中）'],b:['1日2粒','表示区分は確認中（栄養機能食品の記載が多い）'],f:'価格とルテインの量を優先したい人'},
- {n:'わたしのカシス',mk:'Univein（当サイトの運営会社）',me:true,g:['継続時は1日1粒（初月は2粒が目安）','ルテイン10mg・カシス由来アントシアニン50mg','初回1,980円・初回分は30日以内なら全額返金','植物由来カプセル（HPMC）。国内GMP認定工場で製造'],b:['一般食品（機能性表示食品ではない）','30日価格（定価4,780円）は4商品の中で2番目に高い','ルテインの量はメクリアの半分'],f:'毎日の粒数を増やしたくない人、まず初回で試したい人'}
+ {n:'わたしのカシス',mk:'Univein（当サイトの運営会社）',me:true,g:['継続時は1日1粒（初月は2粒が目安）','ルテイン10mg・カシス由来アントシアニン50mg','初回1,980円・初回分は30日以内なら全額返金','キャンペーン価格（仮）2,480円／30日は、この4商品で最も低い','植物由来カプセル（HPMC）。国内GMP認定工場で製造'],b:['一般食品（機能性表示食品ではない）','通常の定価（4,780円）は4商品の中で2番目に高い（キャンペーン価格は仮設定の2,480円）','ルテインの量はメクリアの半分'],f:'毎日の粒数を増やしたくない人、まず初回で試したい人'}
 ];
 document.getElementById('prof').innerHTML=PF.map(function(p){return '<article class="pf'+(p.me?' me':'')+'"><h3>'+p.n+'</h3><div class="mk">'+p.mk+'</div><div class="cols"><div class="good"><b>いいところ</b><ul>'+p.g.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div><div class="bad"><b>気になるところ</b><ul>'+p.b.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div></div><div class="for"><b>向いている人：</b>'+p.f+'</div></article>'}).join('');
 var FQ=[
@@ -277,6 +302,7 @@ var FQ=[
  ['なぜ「初月は2粒」なのですか。','初回のお届けは2箱で、初月は1日2粒が目安です。2か月目以降は1箱（30粒）を30日ごとにお届けし、1日1粒が目安です。このページの「1日1粒」は、2か月目以降の継続時の目安です。'],
  ['返金と解約は、同じ手続きですか。','別の手続きです。返金は初回分のみで、到着後30日以内にメール（info@l-o-e.jp）でお申し込みください。解約・スキップ・変更は、次回発送予定日の7日前までにマイページから行います。返金のお申し込みだけでは、定期は止まりません。'],
  ['「1日あたり」の金額は、どう計算していますか。','30日価格（税込）を30で割った金額です。20日分の商品は、30日分に換算してから割っています。定期やキャンペーンの価格は含みません。'],
+ ['キャンペーン価格（仮）とは何ですか。','わたしのカシスに、他の商品の定期・通常価格を下回る金額（30日2,480円）を仮に設定した、社内ドラフト上のシミュレーションです。実際の販売価格ではありません。公開する場合は、金額・期間・条件を確定してから表示します。'],
  ['表の「確認中」は何ですか。','公式ページの本文を読めていない項目、または出典によって値が異なる項目です。推測では埋めず、確認が取れた時点で更新します。']
 ];
 document.getElementById('faqlist').innerHTML=FQ.map(function(f,i){return '<div class="q"><button aria-expanded="false" aria-controls="a'+i+'">'+f[0]+'</button><div class="ans" id="a'+i+'" hidden>'+f[1]+'</div></div>'}).join('');
