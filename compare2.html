@@ -151,6 +151,8 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 .res tr:last-child th,.res tr:last-child td{border-bottom:0}
 .res th{width:6.2em;background:var(--soft)}
 .sub{font-size:12.5px;color:var(--muted);margin-top:6px}
+.answer .aq{font-size:12.5px;color:var(--muted)}
+.answer .aa{font-family:var(--f-head);font-size:18px;font-weight:800;margin-top:2px;line-height:1.55}
 </style>
 </head>
 <body>
@@ -246,14 +248,13 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 
 <section class="step" aria-labelledby="s5">
   <div class="stepno">5 / 5　総合</div>
-  <h2 id="s5">4つの軸を見終えて。<br>総合的に、わたしのカシスをおすすめします。</h2>
-  <table class="res">
-    <tr><th>軸① 中身と量</th><td>カシス由来アントシアニンを50mgと書いている4商品は、同量です。わたしのカシスは、その1つです。量が確認できたのはカシス系だけで、ビルベリー系は量の記載がありません。</td></tr>
-    <tr><th>軸② ルテイン</th><td>1日量はメクリア（20mg）やPURELAB（60mg）が多く、わたしのカシスは10mgです。リポソームルテインと書いているのは、万寿 Cassis Premierとわたしのカシスだけです。</td></tr>
-    <tr><th>軸③ 産地</th><td>わたしのカシスは「ニュージーランド産のみ使用」と書いています。カシスアイ・カシス-i EXは現行の本店ページに産地の記載がなく（組合の記事・2018年の発表にニュージーランド産）、メクリア・万寿は記載なしです。</td></tr>
-    <tr><th>軸④ 費用</th><td>カシス系で最も安いのはメクリア（約126円、定期約99円）です。わたしのカシスは約159円（定期約127円）で、カシスアイ（約162円）・カシス-i EX（約189円）より低い水準です。全体では、えんきん・DHC・小林製薬・わかさ生活・ロートV5・PURELABのほうが安い価格帯です。</td></tr>
-  </table>
-  <p>わたしのカシスは、<b>どれか一つの軸で1位、という商品ではありません</b>。ルテイン量ならメクリア、価格ならえんきんやDHCなどが上です。それでもおすすめするのは、<b>4つの軸を同時に満たす点</b>です。カシス由来アントシアニンの量が数字で書かれ（50mg）、ルテインの原料がリポソームルテインと名前で書かれ、産地が「ニュージーランド産のみ使用」と書かれ、カシス系の中で費用が低めの水準にある（価格を確認できた4商品の中で2番目）。この4つが、1つの商品にそろっているのは、確認できた11商品の中では、わたしのカシスだけです。</p>
+  <h2 id="s5">軸ごとに1番を確かめて、<br>最後に総合で選びます。</h2>
+  <div class="pick">
+    <div class="pick-lead">軸を選ぶと、その軸の1番が分かります</div>
+    <div class="pick-sub">最後に「総合」を押してください</div>
+    <div class="tiles" id="prio"></div>
+    <div class="answer" id="answer" aria-live="polite"></div>
+  </div>
 
   <div class="final">
     <h3>ルテインに、産地と量が分かるカシスアントシアニンを足したい方へ。</h3>
@@ -269,12 +270,6 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
     <p class="note">この「おすすめ」は、販売事業者としての運営者の判断です。他商品の初回条件・返金条件は確認中です。各商品の条件は、各ページで確認してから選んでください。</p>
   </div>
 
-  <h3 class="axh">ほかの軸を重く見る方は</h3>
-  <div class="rs">
-    <div><b>とにかく費用を抑えたい</b>1日あたり約40〜90円の、DHC ルテイン 光対策（約41円）・PURELAB（約53円）・えんきん（約72円）・小林製薬（約72円）・わかさ生活 ブルーベリーアイ（約78円）・ロートV5（約87円）が候補です。</div>
-    <div><b>ルテインの量を重視したい</b>メクリア（20mg）・DHC（16mg）・PURELAB（60mg）が上位です。</div>
-    <div><b>森下仁丹のブランドで選びたい</b>カシスアイ、カシス-i EXです。</div>
-  </div>
 </section>
 
 <section class="step" aria-labelledby="faq">
@@ -339,6 +334,24 @@ function bars(id,list,key,max,fmtv,nulltxt){
 renderChips();renderTbl();
 bars('c-a',P.slice().sort(function(a,b){return (b.an||0)-(a.an||0)}),'an',60,function(v){return v+'mg'},'記載なし');
 bars('c-p',P.filter(function(p){return p.dn!=null}).sort(function(a,b){return a.dn-b.dn}).concat(P.filter(function(p){return p.dn==null})),'dn',200,function(v){return '約'+v+'円'},'確認中');
+var AX=[
+ {k:'a1',t:'① ＋αの量で選ぶ',sub:'カシス由来アントシアニン',who:'カシスアイ・カシス-i EX・メクリア・わたしのカシス（同率）',why:'カシス由来アントシアニンの量（mg）を書いているのは、この4商品で、どれも1日50mgです。同率なので、この軸だけでは決まりません。DHCはカシスエキス末の含有率から計算すると約7mgです。ビルベリー系の4商品は、アントシアニンの量の記載がありません。',show:[]},
+ {k:'a2',t:'② ルテインで選ぶ',sub:'量と、届け方',who:'量：PURELAB（60mg）／リポソームルテイン：わたしのカシス・万寿',why:'ルテインの1日量が最も多いのは、PURELABの60mgです。カシス系の中では、メクリアの20mgが最も多く、わたしのカシスは10mgです。ルテインの原料の形を「リポソームルテイン」と書いているのは、わたしのカシスと、万寿 Cassis Premier（ルテイン量は確認中）です。',show:['pure','mec']},
+ {k:'a3',t:'③ 産地の記載で選ぶ',sub:'原料の産地が書かれているか',who:'わたしのカシス（ニュージーランド産のみ使用）／ブルーベリーアイ（ビルベリー：スウェーデン産）',why:'カシス系で、カシスの産地が現行の公式ページに書かれているのは、わたしのカシスだけです。ベリー系では、わかさ生活のブルーベリーアイが、ビルベリーの産地（スウェーデン産）を書いています。カシスアイ・カシス-i EXは現行の本店ページに記載がなく、メクリア・万寿・そのほかの商品も記載なしです。',show:['me','wak']},
+ {k:'a4',t:'④ 費用で選ぶ',sub:'1日あたり（通常価格）',who:'DHC ルテイン 光対策（約41円）／カシス系ではメクリア（約126円）',why:'1日あたりの通常価格が最も低いのは、DHC（約41円）です。ただし、カシス由来アントシアニンは約7mg（計算）です。アントシアニン50mgの商品の中では、メクリア（約126円、定期約99円）が最も低く、わたしのカシスは約159円（定期約127円）で、カシスアイ（約162円）・カシス-i EX（約189円）より低い水準です。',show:['dhc','mec']},
+ {k:'all',t:'総合で選ぶ',sub:'4つの軸をまとめて',who:'わたしのカシス',me:true,why:'わたしのカシスは、どれか一つの軸で1位、という商品ではありません。ルテイン量はPURELABやメクリア、価格はDHCやえんきんなどが上です。それでもおすすめするのは、4つの軸を同時に満たす点です。カシス由来アントシアニンの量が数字で書かれ（50mg）、ルテインの原料がリポソームルテインと名前で書かれ、産地が「ニュージーランド産のみ使用」と書かれ、カシス系の中で費用が低めの水準にある（価格を確認できた4商品の中で2番目）。この4つが1つの商品にそろっているのは、確認できた11商品の中では、わたしのカシスだけです。',show:['me']}
+];
+var cur='a1';
+function btns(p){var q=encodeURIComponent(p.me?'わたしのカシス':p.maker+' '+p.name);return '<div class="btns">'+(p.me?'<a class="btn main" href="https://www.l-o-e.jp/collections/all" target="_blank" rel="noopener">初回1,980円で始める（公式ストア）</a>':'')+'<a class="btn" target="_blank" rel="noopener sponsored" href="https://www.amazon.co.jp/s?k='+q+'">Amazonで見る</a><a class="btn" target="_blank" rel="noopener sponsored" href="https://search.rakuten.co.jp/search/mall/'+q+'/">楽天市場で見る</a></div>'}
+function renderPrio(first){
+ var pr=document.getElementById('prio');
+ pr.innerHTML=AX.map(function(a){return '<button class="tile" style="'+(a.k==='all'?'grid-column:1/-1':'')+'" aria-pressed="'+(cur===a.k)+'" data-k="'+a.k+'">'+a.t+'<small>'+a.sub+'</small></button>'}).join('');
+ pr.querySelectorAll('button').forEach(function(b){b.onclick=function(){cur=b.dataset.k;renderPrio(false)}});
+ var a=AX.filter(function(x){return x.k===cur})[0],el=document.getElementById('answer');
+ el.innerHTML='<div class="aq">「'+a.t.replace(/^[①②③④] /,'')+'」なら</div><div class="aa">'+a.who+'</div><p>'+a.why+'</p>'+a.show.map(function(id){var p=P.filter(function(x){return x.id===id})[0];return '<div style="margin-top:12px;font-weight:700;font-size:13px">'+p.name+'</div>'+btns(p)}).join('');
+ el.classList.remove('flash');if(first!==true){void el.offsetWidth;el.classList.add('flash')}
+}
+renderPrio(true);
 var FQ=[
  ['このサイトは、中立ですか。','中立ではありません。運営しているのは「わたしのカシス」の販売事業者（株式会社Univein）で、比較対象に自社商品を含み、最後におすすめするのも自社商品です。そのため、各商品の内容は公式ページの記載をそのまま表に並べ、自社商品が上位でない軸（ルテインの量・価格など）も、結論の中に書いています。'],
  ['なぜ、ルテインにカシスアントシアニンを足すことをおすすめするのですか。','理由は、「量を数字で比べられる」「ブルーベリーとはアントシアニンの種類が違う」「ルテインと組み合わせた商品がすでにある」「産地を選べる」「運営者がカシスを選んだ経緯がある」の5つです。ブルーベリーを含む商品より優れている、という意味ではありません。詳しくは「なぜカシスアントシアニンをおすすめするのか」に書いています。'],
