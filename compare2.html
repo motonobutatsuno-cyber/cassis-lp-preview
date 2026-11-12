@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>ルテイン＋αのサプリ比較ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F4EE; --card:#FFFFFF; --fg:#2A2430; --muted:#6B6275; --line:#E4DDEB;
+  --accent:#4B2E6B; --accent-fg:#FFFFFF; --soft:#F1E9F8; --gold:#D4A017; --goldsoft:#FFF4D1; --lutein:#E5A700; --cassis:#4B2E6B;
+  --ok:#1E7A4C; --okbg:#E3F4EA; --ng:#9A3A2B; --warn:#8A6500;
+  --f-head:'Shippori Mincho B1',serif; --f-body:'Noto Sans JP',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17131C; --card:#221C2A; --fg:#EFE9F5; --muted:#A99FB6; --line:#3A3146;
+  --accent:#C9A8EE; --accent-fg:#1B1424; --soft:#2D2438; --gold:#E8B83A; --goldsoft:#3A3014; --lutein:#F2C34A; --cassis:#C9A8EE;
+  --ok:#6FD3A1; --okbg:#173326; --ng:#F29B8A; --warn:#F0C65A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17131C; --card:#221C2A; --fg:#EFE9F5; --muted:#A99FB6; --line:#3A3146;
+  --accent:#C9A8EE; --accent-fg:#1B1424; --soft:#2D2438; --gold:#E8B83A; --goldsoft:#3A3014; --lutein:#F2C34A; --cassis:#C9A8EE;
+  --ok:#6FD3A1; --okbg:#173326; --ng:#F29B8A; --warn:#F0C65A; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+.wrap{max-width:720px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-head);line-height:1.55;margin:0;text-wrap:balance}
+.disclose{margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:9px max(16px,env(safe-area-inset-left,0px));background:var(--accent);color:var(--accent-fg);font-size:12px;line-height:1.6}
+header.hero{padding:34px 0 6px}
+.eyebrow{font-size:11px;letter-spacing:.16em;color:var(--muted)}
+h1{font-size:26px;font-weight:800;margin-top:8px}
+h1 em{font-style:normal;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--lutein) 45%,transparent) 62%)}
+.lead{margin:14px 0 0;color:var(--muted)}
+.step{margin-top:44px}
+.stepno{font-size:11px;letter-spacing:.14em;color:var(--muted)}
+h2{font-size:21px;font-weight:800;margin-top:4px}
+.step p{margin:12px 0 0}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.pair div{padding:14px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:13.5px;line-height:1.75}
+.pair b{display:block;font-family:var(--f-head);font-size:16px;margin-bottom:2px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:baseline}
+.eq{margin-top:16px;padding:16px;border-radius:14px;background:var(--soft);text-align:center;font-family:var(--f-head);font-size:18px;font-weight:800}
+.eq small{display:block;font-family:var(--f-body);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:4px}
+.cards4{display:grid;gap:8px;margin-top:16px}
+.pc{padding:12px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:13.5px;line-height:1.7}
+.pc b{font-size:14.5px}
+.pc.me{border:2px solid var(--gold);background:var(--goldsoft)}
+.axh{font-size:16px;margin:24px 0 0}
+.excl{margin-top:12px;font-size:12.5px;color:var(--muted);line-height:1.8}
+.pick{margin:18px calc(-1 * max(16px,env(safe-area-inset-left,0px))) 0;padding:20px max(16px,env(safe-area-inset-left,0px)) 22px;background:var(--soft);border-block:2px solid var(--accent)}
+.pick-lead{font-family:var(--f-head);font-size:19px;font-weight:800;line-height:1.5;text-align:center}
+.pick-sub{margin:6px 0 0;text-align:center;font-size:13px;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.tile{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;flex-direction:column;justify-content:center;gap:2px;min-height:78px;padding:12px 38px 12px 14px;border:2px solid var(--line);border-radius:14px;background:var(--card);font-weight:700;font-size:15px;line-height:1.45;box-shadow:0 3px 0 var(--line);transition:transform .12s,box-shadow .12s}
+.tile small{font-weight:400;font-size:11.5px;color:var(--muted)}
+.tile::after{content:"";position:absolute;right:12px;top:50%;width:20px;height:20px;margin-top:-10px;border-radius:50%;border:2px solid var(--line)}
+.tile:active{transform:translateY(2px);box-shadow:0 1px 0 var(--line)}
+.tile[aria-pressed="true"]{border-color:var(--accent);background:var(--accent);color:var(--accent-fg);box-shadow:0 3px 0 color-mix(in srgb,var(--accent) 60%,#000)}
+.tile[aria-pressed="true"] small{color:inherit;opacity:.85}
+.tile[aria-pressed="true"]::after{content:"✓";display:flex;align-items:center;justify-content:center;background:var(--gold);border-color:var(--gold);color:#34194F;font-size:13px;line-height:1}
+.tile:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.pick-arrow{margin-top:12px;text-align:center;font-size:12.5px;color:var(--accent);font-weight:700}
+.answer.flash{animation:flash .45s ease}
+@keyframes flash{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.answer.flash{animation:none}.tile{transition:none}}
+.ribbon{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:var(--ng);color:#fff;font-size:11px;font-weight:700;vertical-align:middle}
+.camp{margin-top:10px;padding:12px 14px;border-radius:12px;background:var(--goldsoft);border:1.5px dashed var(--gold);font-size:13.5px;line-height:1.8}
+.camp b{font-family:var(--f-head);font-size:22px}
+.answer{margin-top:14px;padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.answer .q{font-size:12.5px;color:var(--muted)}
+.answer .a{font-family:var(--f-head);font-size:19px;font-weight:800;margin-top:2px}
+.answer p{margin:8px 0 0;font-size:14px;line-height:1.85}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.btn{display:block;text-align:center;text-decoration:none;font-weight:700;font-size:13.5px;padding:11px 8px;border-radius:10px;border:1.5px solid var(--accent);color:var(--accent);background:var(--card)}
+.btn.main{grid-column:1/-1;background:linear-gradient(180deg,#FFE9A8,#FFE08A);border-color:#D4A017;color:#34194F;font-size:15px;padding:14px 8px}
+.scroller{overflow-x:auto;margin-top:14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:880px;font-size:12.5px;line-height:1.65}
+th,td{padding:10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--soft);font-size:12px}
+tbody th{background:var(--soft);font-size:11.5px;white-space:nowrap;position:sticky;left:0}
+td.me,th.me{background:var(--goldsoft)}
+td small{display:block;color:var(--muted);font-size:11px}
+.hl{font-weight:700;color:var(--ok)}
+.note{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.75}
+.final{margin-top:16px;padding:20px 18px;border-radius:16px;background:var(--accent);color:var(--accent-fg)}
+.final h3{font-size:19px}
+.final p{margin:10px 0 0;font-size:14px}
+.final ul{margin:10px 0 0;padding-left:1.2em;font-size:13.5px}
+.offer{margin-top:14px;padding:14px;border-radius:12px;background:var(--goldsoft);color:#34194F}
+.offer b{font-family:var(--f-head);font-size:26px}
+.final .note{color:inherit;opacity:.8}
+.src{font-size:12px;color:var(--muted);padding-left:1.1em;margin:10px 0 0}
+.src li{margin:4px 0;overflow-wrap:anywhere}
+a{color:var(--accent)}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:8px max(16px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
+.nav a{display:inline-block;margin-right:6px;padding:5px 11px;border-radius:999px;font-size:12px;text-decoration:none;color:var(--fg);background:var(--card);border:1px solid var(--line)}
+.nav a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hero-art{margin-top:20px;display:flex;justify-content:center}
+.chart{margin-top:16px;padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.chart h3{font-size:15px}
+.chart .u{font-size:11.5px;color:var(--muted);margin-top:2px}
+.bar{display:grid;grid-template-columns:104px 1fr;gap:8px;align-items:center;margin-top:9px;font-size:12.5px}
+.bar .nm{line-height:1.4}
+.bar .tr{position:relative;height:22px;border-radius:6px;background:var(--soft)}
+.bar .fl{position:absolute;inset:0 auto 0 0;border-radius:6px;background:var(--muted);opacity:.55}
+.bar.me .fl{background:var(--gold);opacity:1}
+.bar .v{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.prof{display:grid;gap:12px;margin-top:16px}
+.pf{padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.pf.me{border:2px solid var(--gold);background:var(--goldsoft)}
+.pf h3{font-size:17px}.pf .mk{font-size:12px;color:var(--muted)}
+.pf .cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;font-size:13px;line-height:1.75}
+.pf .cols b{display:block;font-size:12px;margin-bottom:2px}
+.pf .good b{color:var(--ok)}.pf .bad b{color:var(--ng)}
+.pf ul{margin:0;padding-left:1.1em}
+.pf .for{margin-top:10px;font-size:13px;padding-top:10px;border-top:1px dashed var(--line)}
+.faq{margin-top:14px;display:grid;gap:8px}
+.q{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.q button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:10px;width:100%;padding:13px 14px;font-weight:700;font-size:14px;line-height:1.6}
+.q button::after{content:"＋";margin-left:auto;color:var(--accent)}
+.q button[aria-expanded="true"]::after{content:"－"}
+.q button:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.q .ans{padding:0 14px 14px;font-size:13.5px;line-height:1.85}
+.q .ans[hidden]{display:none}
+.co{margin-top:12px;font-size:13px}
+.co{display:grid;grid-template-columns:8.5em 1fr;gap:4px 8px}.co dt{color:var(--muted)}.co dd{margin:0}
+.log{margin:10px 0 0;padding:0;list-style:none;font-size:12.5px}
+.log li{padding:6px 0;border-top:1px dashed var(--line)}
+@media (max-width:420px){.pf .cols{grid-template-columns:1fr}.bar{grid-template-columns:88px 1fr}.tiles{gap:8px}.tile{font-size:14px;padding-right:34px}}
+@media (max-width:420px){.pair{grid-template-columns:1fr}}
+.rs{display:grid;gap:10px;margin-top:16px}
+.rs div{padding:14px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:13.5px;line-height:1.8}
+.rs div>b:first-child{display:block;font-family:var(--f-head);font-size:15.5px;margin-bottom:2px}
+.rs .n{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:50%;background:var(--accent);color:var(--accent-fg);font-size:12px;margin-right:6px;font-family:var(--f-body)}
+.ax{margin-top:14px;padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.ax h3{font-size:17px}
+.ax dl{margin:10px 0 0;display:grid;grid-template-columns:5.2em 1fr;gap:6px 10px;font-size:13.5px;line-height:1.8}
+.ax dt{font-weight:700;color:var(--accent);font-size:12.5px}.ax dd{margin:0}
+.chips{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.chip{all:unset;box-sizing:border-box;cursor:pointer;padding:7px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);font-size:13px;font-weight:700}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.chip:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.res{width:100%;min-width:0;table-layout:fixed;margin-top:14px;border:1px solid var(--line);border-radius:12px;background:var(--card);border-collapse:separate;border-spacing:0;overflow:hidden;font-size:13px;line-height:1.75}
+.res th,.res td{padding:10px 12px;border-bottom:1px solid var(--line);position:static;white-space:normal}
+.res tr:last-child th,.res tr:last-child td{border-bottom:0}
+.res th{width:6.2em;background:var(--soft)}
+.sub{font-size:12.5px;color:var(--muted);margin-top:6px}
+</style>
+</head>
+<body>
+<div class="disclose"><div class="wrap"><b>運営：株式会社Univein。</b>本サイトは「わたしのカシス」の販売事業者が運営しており、比較対象に自社商品を含みます。各商品へのリンクは広告を含みます。（社内確認用ドラフト）</div></div>
+
+<nav class="nav" aria-label="ページ内の移動"><a href="#s1">なぜ「ルテイン＋α」</a><a href="#s2">なぜカシス</a><a href="#s3">比べる4つの軸</a><a href="#s4">比較表</a><a href="#s5">総合</a><a href="#faq">よくある質問</a></nav>
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">ルテインのサプリを探している方へ</div>
+  <h1><em>ルテイン</em>のサプリは、<br>「＋α」で選ぶ。</h1>
+  <p class="lead">ルテインを配合したサプリは、数多くあります。違いが出るのは、<b>ルテインに何を足しているか</b>と、<b>その中身がどこまで確かめられるか</b>です。このページでは、<b>ルテイン＋α</b>の商品11点を、4つの軸で順に比べていきます。</p>
+  <div class="hero-art" aria-hidden="true"><svg width="260" height="96" viewBox="0 0 260 96"><defs><radialGradient id="gy" cx="35%" cy="30%"><stop offset="0" stop-color="#FFE27A"/><stop offset="1" stop-color="#E5A700"/></radialGradient><radialGradient id="gp" cx="35%" cy="30%"><stop offset="0" stop-color="#8a5cb8"/><stop offset="1" stop-color="#34194F"/></radialGradient></defs><circle cx="40" cy="48" r="34" fill="url(#gy)"/><text x="40" y="53" text-anchor="middle" font-size="13" font-weight="700" fill="#4a3300">ルテイン</text><text x="90" y="55" text-anchor="middle" font-size="24" font-weight="700" fill="#D4A017">＋</text><circle cx="140" cy="48" r="34" fill="url(#gp)"/><text x="140" y="53" text-anchor="middle" font-size="22" font-weight="700" fill="#FFE08A">α</text><text x="190" y="55" text-anchor="middle" font-size="24" font-weight="700" fill="#D4A017">→</text><text x="228" y="53" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">4つの軸</text></svg></div>
+</header>
+
+<section class="step" aria-labelledby="s1">
+  <div class="stepno">1 / 5　なぜ「ルテイン＋α」で比べるのか</div>
+  <h2 id="s1">ルテインは入口。<br>差がつくのは「＋α」です。</h2>
+  <p>「ルテイン サプリ」は、月に約12,100回検索されています。「目 サプリ」は約6,600回、「ブルーベリー サプリ」は約4,400回、「カシス サプリ」は約720回です（Googleキーワードプランナー、2026年10月）。目のサプリを探す人にとって、ルテインは入口の言葉です。</p>
+  <p>その分、商品も多く、ルテインだけを見ると、どれも似た表示になります。そこで、各商品が<b>ルテインに何を足しているか（＋α）</b>に注目します。このページの11商品の＋αは、おおまかに次の3つです。</p>
+  <div class="rs">
+    <div><b><span class="dot" style="background:var(--cassis)"></span>カシス由来アントシアニン</b>カシスアイ、カシス-i EX、メクリア、万寿 Cassis Premier、わたしのカシス（5商品）</div>
+    <div><b><span class="dot" style="background:var(--lutein)"></span>ビルベリー・ベリー類</b>ロートV5 アクトビジョン、小林製薬 ブルーベリー ルテイン メグスリノ木、わかさ生活 ブルーベリーアイ、PURELAB ルテイン60mg（4商品）</div>
+    <div><b><span class="dot" style="background:var(--muted)"></span>そのほか</b>ファンケル えんきん（アスタキサンチン）、DHC ルテイン 光対策（カシスエキス末・メグスリノキ・クロセチンなど複数）（2商品）</div>
+  </div>
+  <p class="note">選び方：ルテインを配合し、目のサプリとして売られている商品のうち、運営者が公式ページで内容を確認できた11商品です。全商品を網羅したものではありません。カシスだけ（ルテインなし）の商品は、「ルテイン＋α」ではないため含めていません。</p>
+</section>
+
+<section class="step" aria-labelledby="s2">
+  <div class="stepno">2 / 5　なぜカシスアントシアニンをおすすめするのか</div>
+  <h2 id="s2">「＋α」の中で、<br>カシスアントシアニンをおすすめする理由。</h2>
+  <p>先にお断りします。このページを運営するUnivein は、カシスアントシアニンとリポソームルテインを配合した「わたしのカシス」を販売しています。ですから、ここで書くのは「ほかの成分より優れている」という話ではありません。<b>ルテインに足す成分として、運営者がカシスアントシアニンを選び、おすすめしている理由</b>を、確認できる事実だけで書きます。</p>
+  <div class="rs">
+    <div><b><span class="n">1</span>量を、数字で比べられる</b>この11商品のうち、カシス由来アントシアニンの量（mg）を書いているのは、カシス系の4商品（カシスアイ・カシス-i EX・メクリア・わたしのカシス）で、どれも50mgです。ビルベリー系の4商品は、配合は書かれていても、アントシアニンの量の記載がありません（ロートV5・わかさ生活・PURELABは量の記載なし、小林製薬は「ビルベリーエキス120mg」と、エキスの量のみ）。数字で並べられることは、比較サイトにとって大事な条件です。</div>
+    <div><b><span class="n">2</span>ブルーベリーとは、アントシアニンの「種類」が違う</b>アントシアニンは一つの物質の名前ではなく、果実ごとに種類の組み合わせが違います。カシスはデルフィニジン3-ルチノシドとシアニジン3-ルチノシドが中心で、ビルベリーは3-グルコシドなどの系統が中心と報告されています（<a href="https://pubmed.ncbi.nlm.nih.gov/27747228/" target="_blank" rel="noopener">PMID 27747228</a>ほか）。どちらが優れているかを言うものではありません。ただ、「ブルーベリーのサプリ」の選択肢しか見ていないと、種類の違うカシスは視野に入りません。</div>
+    <div><b><span class="n">3</span>ルテインと組み合わせた商品が、すでにある</b>カシスアントシアニンとルテインの組み合わせは、森下仁丹の「ヘルスエイド カシスアイ」のように、機能性表示食品として届出された商品もある組み合わせです（届出番号E453）。検索される数はブルーベリーより少なくても、選べる商品がそろい始めています。</div>
+    <div><b><span class="n">4</span>産地を、選べる</b>カシスは世界各地で育てられ、サプリでも、産地が書かれている商品と、書かれていない商品があります。わたしのカシスは、ニュージーランド産のカシスだけを使っています。産地は、次の「比べる4つの軸」のひとつにしています。</div>
+    <div><b><span class="n">5</span>運営者がカシスを選んだ経緯</b>わたしのカシスのはじまりは、2017年に、ニュージーランドの友人から届いた一通のLINE「ニュージーランドのカシスはどうでしょう？」でした。調べるほどに惹かれ、カシスとルテインを組み合わせた試作品までつくりました。量産の直前で開発を止め、ルテインを<b>リポソームルテイン</b>に替えて、処方を作り直しています。35歳以上の女性に向けたブランドです。</div>
+  </div>
+  <p class="note">ビルベリー系の商品が劣る、という意味ではありません。ビルベリーを含む商品の内容は、そのまま表に並べています。</p>
+</section>
+
+<section class="step" aria-labelledby="s3">
+  <div class="stepno">3 / 5　比べる4つの軸</div>
+  <h2 id="s3">比べる軸は4つ。<br>なぜその軸か、先に書きます。</h2>
+  <p>軸を決めた理由は、「商品ページを見ても、同じ条件で並べられない部分」を、そろえるためです。順に見ていきます。</p>
+
+  <div class="ax">
+    <h3>軸① ＋αの中身と量</h3>
+    <dl>
+      <dt>なぜ</dt><dd>「カシス配合」「ブルーベリー配合」と書いてあっても、何がどれだけ入っているかは、それだけでは分かりません。「カシスエキス300mg」のようなエキスの量は、アントシアニンの量とは別のものです。</dd>
+      <dt>見るところ</dt><dd>＋αの成分名と、1日あたりの量。量が書かれていなければ「記載なし」とします。</dd>
+      <dt>注意</dt><dd>量が多いほど良い、とは言っていません。数字が確認できるかどうかを見ます。</dd>
+    </dl>
+  </div>
+  <div class="ax">
+    <h3>軸② ルテインの量と、届け方</h3>
+    <dl>
+      <dt>なぜ</dt><dd>ルテインは、この比較の入口になる成分です。1日あたりのルテインは、6mgから60mgまで、商品によって大きく違います。また、ルテインの原料の形（フリー体、リポソームルテインなど）は、公開している商品としていない商品があります。</dd>
+      <dt>見るところ</dt><dd>ルテインの1日量（mg）と、原料の形が書かれているか。</dd>
+      <dt>注意</dt><dd>原料の形の違いで、優劣や吸収の差を言うものではありません。「書かれているか」「何という名前か」を並べます。</dd>
+    </dl>
+  </div>
+  <div class="ax">
+    <h3>軸③ 原料の産地の記載</h3>
+    <dl>
+      <dt>なぜ</dt><dd>産地が書かれていないと、同じ条件で中身や価格を比べることができません。産地が書かれていることは、比べるための前提になります。</dd>
+      <dt>見るところ</dt><dd>＋α原料（カシス・ビルベリーなど）の産地が、現行の公式ページに書かれているか。</dd>
+      <dt>注意</dt><dd>「記載なし」は、公式ページで確認できなかったという意味です。産地を公表していないことの証明ではありません。</dd>
+    </dl>
+  </div>
+  <div class="ax">
+    <h3>軸④ 毎日の費用（1日あたり）</h3>
+    <dl>
+      <dt>なぜ</dt><dd>サプリは続けて使うものです。内容量や日数が商品ごとに違うため、箱の価格のままでは比べられません。</dd>
+      <dt>見るところ</dt><dd>通常価格（税込）を、日数で割った1日あたりの金額。定期の価格は参考として別の行に書きます。</dd>
+      <dt>注意</dt><dd>安さだけで選ぶなら、軸①〜③は見なくても構いません。その場合の答えも、あとで書きます。</dd>
+    </dl>
+  </div>
+  <p class="note">表には、4つの軸のほかに、粒数・区分（機能性表示食品など）・初回の条件を「参考」の行として載せています。参考の行は、おすすめの判断には使っていません。</p>
+</section>
+
+<section class="step" aria-labelledby="s4">
+  <div class="stepno">4 / 5　比較表</div>
+  <h2 id="s4">4つの軸で、11商品を並べます。</h2>
+  <p>公式ページを2026年11月12日に確認した内容です（PURELABの価格のみ2026年10月21日時点）。確認できなかった項目は「記載なし」「確認中」としています。</p>
+  <div class="chips" id="chips"></div>
+  <div class="scroller"><table id="tbl"></table></div>
+  <p class="note">横にスクロールできます。「1日あたり」は、通常価格（税込）÷日数の計算値です。</p>
+
+  <div class="chart"><h3>軸① カシス由来アントシアニンの量（1日）</h3><div class="u">数字が書かれている商品だけに棒が出ます</div><div id="c-a"></div></div>
+  <div class="chart"><h3>軸④ 1日あたりの費用（通常価格）</h3><div class="u">安い順。ルテインに足す成分や量は、商品ごとに違います</div><div id="c-p"></div></div>
+</section>
+
+<section class="step" aria-labelledby="s5">
+  <div class="stepno">5 / 5　総合</div>
+  <h2 id="s5">4つの軸を見終えて。<br>総合的に、わたしのカシスをおすすめします。</h2>
+  <table class="res">
+    <tr><th>軸① 中身と量</th><td>カシス由来アントシアニンを50mgと書いている4商品は、同量です。わたしのカシスは、その1つです。量が確認できたのはカシス系だけで、ビルベリー系は量の記載がありません。</td></tr>
+    <tr><th>軸② ルテイン</th><td>1日量はメクリア（20mg）やPURELAB（60mg）が多く、わたしのカシスは10mgです。リポソームルテインと書いているのは、万寿 Cassis Premierとわたしのカシスだけです。</td></tr>
+    <tr><th>軸③ 産地</th><td>わたしのカシスは「ニュージーランド産のみ使用」と書いています。カシスアイ・カシス-i EXは現行の本店ページに産地の記載がなく（組合の記事・2018年の発表にニュージーランド産）、メクリア・万寿は記載なしです。</td></tr>
+    <tr><th>軸④ 費用</th><td>カシス系で最も安いのはメクリア（約126円、定期約99円）です。わたしのカシスは約159円（定期約127円）で、カシスアイ（約162円）・カシス-i EX（約189円）より低い水準です。全体では、えんきん・DHC・小林製薬・わかさ生活・ロートV5・PURELABのほうが安い価格帯です。</td></tr>
+  </table>
+  <p>わたしのカシスは、<b>どれか一つの軸で1位、という商品ではありません</b>。ルテイン量ならメクリア、価格ならえんきんやDHCなどが上です。それでもおすすめするのは、<b>4つの軸を同時に満たす点</b>です。カシス由来アントシアニンの量が数字で書かれ（50mg）、ルテインの原料がリポソームルテインと名前で書かれ、産地が「ニュージーランド産のみ使用」と書かれ、カシス系の中で費用が低めの水準にある（価格を確認できた4商品の中で2番目）。この4つが、1つの商品にそろっているのは、確認できた11商品の中では、わたしのカシスだけです。</p>
+
+  <div class="final">
+    <h3>ルテインに、産地と量が分かるカシスアントシアニンを足したい方へ。</h3>
+    <p>わたしのカシスは、ニュージーランド産のカシスだけを使い、ルテインにはリポソームルテインを使っています。35歳以上の女性に向けて作り直したブランドです。</p>
+    <ul>
+      <li><b>カシス由来アントシアニン50mg</b>・ルテイン10mg（リポソームルテイン）を配合。</li>
+      <li><b>継続時は1日1粒</b>（初月は2粒が目安）。カシスアイとカシス-i EXは1日3粒、メクリアは2粒です。</li>
+      <li><b>初回1,980円（税込・送料無料）</b>で始められ、初回分は到着後30日以内なら全額返金（開封後も可・返送不要）。</li>
+      <li>定期（継続）は3,824円／30日（約127円／日）。回数の縛りはありません。</li>
+    </ul>
+    <div class="btns"><a class="btn main" id="official" href="https://www.l-o-e.jp/collections/all" target="_blank" rel="noopener">初回1,980円で始める（公式ストア）</a>
+    <a class="btn" target="_blank" rel="noopener sponsored" href="https://www.amazon.co.jp/s?k=%E3%82%8F%E3%81%9F%E3%81%97%E3%81%AE%E3%82%AB%E3%82%B7%E3%82%B9">Amazonで見る</a><a class="btn" target="_blank" rel="noopener sponsored" href="https://search.rakuten.co.jp/search/mall/%E3%82%8F%E3%81%9F%E3%81%97%E3%81%AE%E3%82%AB%E3%82%B7%E3%82%B9/">楽天市場で見る</a></div>
+    <p class="note">この「おすすめ」は、販売事業者としての運営者の判断です。他商品の初回条件・返金条件は確認中です。各商品の条件は、各ページで確認してから選んでください。</p>
+  </div>
+
+  <h3 class="axh">ほかの軸を重く見る方は</h3>
+  <div class="rs">
+    <div><b>とにかく費用を抑えたい</b>1日あたり約40〜90円の、DHC ルテイン 光対策（約41円）・PURELAB（約53円）・えんきん（約72円）・小林製薬（約72円）・わかさ生活 ブルーベリーアイ（約78円）・ロートV5（約87円）が候補です。</div>
+    <div><b>ルテインの量を重視したい</b>メクリア（20mg）・DHC（16mg）・PURELAB（60mg）が上位です。</div>
+    <div><b>機能性表示食品から選びたい</b>カシスアイ（E453）、えんきん（E700）、DHC（J764）、ロートV5（H75）が届出のある商品です。わたしのカシスは一般食品で、届出はしていません。</div>
+    <div><b>森下仁丹のブランドで選びたい</b>カシスアイ、カシス-i EXです。</div>
+  </div>
+</section>
+
+<section class="step" aria-labelledby="faq">
+  <h2 id="faq" style="font-size:19px">よくある質問</h2>
+  <div class="faq" id="faqlist"></div>
+</section>
+
+<section class="step" aria-labelledby="co">
+  <h2 id="co" style="font-size:17px">運営者について</h2>
+  <dl class="co"><dt>運営会社</dt><dd>株式会社Univein</dd><dt>代表者</dt><dd>辰野 元信</dd><dt>運営の立場</dt><dd>「わたしのカシス」の販売事業者。本サイトの比較対象に自社商品を含み、おすすめするのも自社商品です。</dd><dt>広告について</dt><dd>各商品へのリンクは広告を含みます。</dd><dt>所在地・連絡先</dt><dd>（公開前に記載）</dd></dl>
+</section>
+
+<section class="step" aria-labelledby="h-src">
+  <h2 id="h-src" style="font-size:17px">出典と確認状況</h2>
+  <ul class="src">
+    <li>わたしのカシス：社内資料（成分・価格・購入条件）。カシスの産地は、ニュージーランド産のみ使用。</li>
+    <li>ヘルスエイド カシスアイ：<a href="https://www.181109.com/shop/g/gH81001/" target="_blank" rel="noopener">森下仁丹 公式本店</a>（本店ページはカシス抽出物「国内製造」の記載のみ）。ニュージーランド産は、<a href="https://b2b.nzblackcurrants.jp/foods-with-functional-claims-using-new-zealand-cassis/" target="_blank" rel="noopener">NZブラックカラント組合の記事</a>による。</li>
+    <li>カシス-i EX：<a href="https://www.181109.com/shop/g/gJ00801/" target="_blank" rel="noopener">森下仁丹 公式本店</a>（現行ページに産地の記載なし）。ニュージーランド産は、<a href="https://prtimes.jp/main/html/rd/p/000000011.000035073.html" target="_blank" rel="noopener">2018年のPR TIMES</a>による。</li>
+    <li>メクリア：<a href="https://www.pro-real.jp/mecria_cassis/" target="_blank" rel="noopener">公式ページ</a>（ルテイン20mg・フリー体・カシスアントシアニン50mg・セサミン10mg、栄養機能食品）。産地の記載を確認できなかった。初回価格は画像表示のため未確認。</li>
+    <li>万寿「Cassis Premier」：<a href="https://www.amazon.co.jp/dp/B0GYHBWCGY" target="_blank" rel="noopener">Amazon商品ページ</a>（カシス果汁パウダー（国内製造）、リポソームルテイン配合。ルテイン量・アントシアニン量は確認中）。</li>
+    <li>ファンケル えんきん：<a href="https://www.fancl.co.jp/healthy/item/5438a" target="_blank" rel="noopener">公式ページ</a>。DHC ルテイン 光対策：<a href="https://www.dhc.co.jp/goods/32521.html" target="_blank" rel="noopener">公式ページ</a>（カシスエキス末20mg、アントシアニン含有率35%の記載。約7mgは、この含有率からの計算）。</li>
+    <li>ロートV5 アクトビジョン：<a href="https://jp.rohto.com/v5/actvision/" target="_blank" rel="noopener">公式ページ</a>。小林製薬：<a href="https://www.kobayashi.co.jp/seihin/bberry_rm/" target="_blank" rel="noopener">公式ページ</a>。わかさ生活 ブルーベリーアイ：<a href="https://shop.wakasa.jp/np/blueberryeye_2306/" target="_blank" rel="noopener">公式ストア</a>。PURELAB：<a href="https://www.amazon.co.jp/dp/B095NM9NS1" target="_blank" rel="noopener">Amazon商品ページ</a>（2026年10月21日時点）。</li>
+    <li>カシスとビルベリーのアントシアニン組成：<a href="https://pubmed.ncbi.nlm.nih.gov/27747228/" target="_blank" rel="noopener">PMID 27747228</a>ほか。組成の違いの説明であり、優劣を示すものではありません。</li>
+    <li>検索回数：Googleキーワードプランナー（2026年10月・月間）。開発の経緯：社内の開発ストーリー（公開前に代表の承認を確認）。</li>
+  </ul>
+</section>
+
+<footer>運営：株式会社Univein ／ 内容の更新日：2026-11-12 ／ 本ページは社内確認用のドラフトです。</footer>
+</div>
+<script>
+var P=[
+ {id:'me',me:true,g:'cassis',name:'わたしのカシス',maker:'Univein',alpha:'カシス由来アントシアニン',ac:'50mg',an:50,lu:'10mg',lipo:'リポソームルテイン',org:'ニュージーランド産のみ使用',day:'約159円',dn:159,tei:'約127円（定期3,824円／30日。回数の縛りなし）',p30:'4,780円',per:'1粒（初月は2粒が目安）',cat:'一般食品',first:'初回1,980円・到着後30日以内なら全額返金'},
+ {id:'eye',g:'cassis',name:'ヘルスエイド カシスアイ',maker:'森下仁丹',alpha:'カシス由来アントシアニン、β-カロテン1,800μg',ac:'50mg',an:50,lu:'10mg（ほかにゼアキサンチン2mg）',lipo:'記載なし',org:'本店ページは「国内製造」のみ。ニュージーランド産は組合の記事による',day:'約162円',dn:162,tei:'約130円（定期20%OFF）',p30:'4,860円',per:'3粒',cat:'機能性表示食品（E453）',first:'確認中'},
+ {id:'ex',g:'cassis',name:'カシス-i EX',maker:'森下仁丹',alpha:'カシス由来アントシアニン',ac:'50mg',an:50,lu:'12mg',lipo:'記載なし',org:'現行ページに記載なし。2018年の発表にニュージーランド産',day:'約189円',dn:189,tei:'約151円（定期20%OFF）',p30:'5,670円（20日分3,780円からの換算）',per:'3粒',cat:'一般食品',first:'確認中'},
+ {id:'mec',g:'cassis',name:'メクリア',maker:'リアルメイト',alpha:'カシス由来アントシアニン、セサミン10mg',ac:'50mg',an:50,lu:'20mg',lipo:'フリー体',org:'記載なし',day:'約126円',dn:126,tei:'約99円（定期2,980円／30日）',p30:'3,780円',per:'2粒',cat:'栄養機能食品（ビタミンA）',first:'確認中（初回価格は画像表示のため未確認）'},
+ {id:'man',g:'cassis',name:'万寿 Cassis Premier',maker:'万寿',alpha:'カシス果汁パウダー',ac:'確認中',an:null,ann:'確認中',lu:'確認中',lipo:'リポソームルテイン',org:'記載なし（国内製造とあるのみ）',day:'確認中',dn:null,tei:'確認中',p30:'確認中（Amazon表示1,280円）',per:'2粒',cat:'確認中',first:'確認中'},
+ {id:'rohto',g:'berry',name:'ロートV5 アクトビジョン',maker:'ロート製薬',alpha:'ビルベリー果実抽出物、シーベリー果実オイル、α-リポ酸、DHA魚油',ac:'記載なし',an:null,lu:'10mg（ほかにゼアキサンチン2mg）',lipo:'「体内のルテインと同じ分子構造に精製」と記載',org:'記載なし（DHA魚油のみ国内製造）',day:'約87円',dn:87,tei:'約78円（定期4,860円／約2か月）',p30:'約2,610円（62粒5,400円からの換算）',per:'1粒',cat:'機能性表示食品（H75）',first:'確認中'},
+ {id:'kob',g:'berry',name:'ブルーベリー ルテイン メグスリノ木',maker:'小林製薬',alpha:'ビルベリーエキス120mg、メグスリノキ55.3mg',ac:'記載なし（エキス量のみ）',an:null,lu:'6.0mg',lipo:'記載なし',org:'記載なし',day:'約72円',dn:72,tei:'確認中',p30:'2,155円',per:'2粒',cat:'一般食品',first:'確認中'},
+ {id:'wak',g:'berry',name:'ブルーベリーアイ',maker:'わかさ生活',alpha:'ビルベリーエキス、ナノビルベリーエキス、カシスエキス、DHA魚油ほか（量の記載なし）',ac:'記載なし',an:null,lu:'記載なし',lipo:'記載なし',org:'ビルベリー（スウェーデン産）と記載',day:'約78円',dn:78,tei:'約71円（毎日お届けコース2,187円／31日）',p30:'2,430円（31粒）',per:'1粒',cat:'一般食品',first:'確認中'},
+ {id:'pure',g:'berry',name:'ルテイン60mg',maker:'PURELAB',alpha:'ビルベリー・クランベリー・アサイー、アスタキサンチンなど（量の記載なし）',ac:'記載なし',an:null,lu:'60mg（ほかにゼアキサンチン3mg）',lipo:'フリー体',org:'「生産国 日本」のみ。ベリー類の産地は記載なし',day:'約53円',dn:53,tei:'確認中',p30:'1,580円（2026年10月21日時点）',per:'2粒',cat:'栄養機能食品（ビタミンB2・B6・B12）',first:'確認中'},
+ {id:'enk',g:'other',name:'えんきん',maker:'ファンケル',alpha:'アスタキサンチン6mg',ac:'なし',an:null,lu:'10mg（ほかにゼアキサンチン2mg）',lipo:'記載なし',org:'記載なし（食用加工油脂のみ国内製造）',day:'約72円',dn:72,tei:'約65円（定期1,944円／30日）',p30:'2,160円',per:'1粒',cat:'機能性表示食品（E700）',first:'確認中'},
+ {id:'dhc',g:'other',name:'ルテイン 光対策',maker:'DHC',alpha:'カシスエキス末20mg、メグスリノキエキス末20mg、クロセチン3mg',ac:'約7mg（カシスエキス末の含有率35%の記載からの計算）',an:7,ann:'約7mg（計算）',lu:'16mg',lipo:'記載なし',org:'記載なし',day:'約41円',dn:41,tei:'定期初回594円。2回目以降は確認中',p30:'1,215円',per:'1粒',cat:'機能性表示食品（J764）',first:'確認中'}
+];
+var ROWS=[['＋αの中身（1日）','alpha'],['① カシス由来アントシアニンの量','ac'],['② ルテイン（1日）','lu'],['② ルテインの届け方','lipo'],['③ ＋α原料の産地の記載','org'],['④ 1日あたりの費用（通常価格）','day'],['　定期・継続の価格（参考）','tei'],['参考：30日あたりの通常価格','p30'],['参考：1日の粒数','per'],['参考：区分','cat'],['参考：初回の条件','first']];
+var filt='all';
+function renderTbl(){
+ var L=P.filter(function(p){return filt==='all'||p.g==='cassis'});
+ var t='<thead><tr><th></th>'+L.map(function(p){return '<th class="'+(p.me?'me':'')+'">'+p.name+'<small style="font-weight:400;color:var(--muted)">'+p.maker+'</small></th>'}).join('')+'</tr></thead><tbody>';
+ ROWS.forEach(function(r){t+='<tr><th>'+r[0]+'</th>'+L.map(function(p){var c=p[r[1]],hl=(r[1]==='lipo'&&p.lipo==='リポソームルテイン')||(r[1]==='org'&&p.me);return '<td class="'+(p.me?'me':'')+'">'+(hl?'<span class="hl">'+c+'</span>':c)+'</td>'}).join('')+'</tr>'});
+ document.getElementById('tbl').innerHTML=t+'</tbody>';
+ document.getElementById('tbl').style.minWidth=(130+L.length*170)+'px';
+}
+function renderChips(){
+ var el=document.getElementById('chips');
+ el.innerHTML=[['all','すべて（11商品）'],['cassis','カシス系だけ（5商品）']].map(function(c){return '<button class="chip" aria-pressed="'+(filt===c[0])+'" data-k="'+c[0]+'">'+c[1]+'</button>'}).join('');
+ el.querySelectorAll('button').forEach(function(b){b.onclick=function(){filt=b.dataset.k;renderChips();renderTbl()}});
+}
+function bars(id,list,key,max,fmtv,nulltxt){
+ document.getElementById(id).innerHTML=list.map(function(p){var v=p[key];
+  if(v==null){return '<div class="bar'+(p.me?' me':'')+'"><div class="nm">'+p.name+'</div><div class="tr"><div class="fl" style="width:0"></div><span class="v" style="position:static;margin-left:6px;font-weight:400;color:var(--muted)">'+(p.ann||nulltxt)+'</span></div></div>'}
+  return '<div class="bar'+(p.me?' me':'')+'"><div class="nm">'+p.name+'</div><div class="tr"><div class="fl" style="width:'+Math.max(4,v/max*100)+'%"></div><span class="v">'+(key==='an'&&p.ann?p.ann:fmtv(v))+'</span></div></div>'}).join('')}
+renderChips();renderTbl();
+bars('c-a',P.slice().sort(function(a,b){return (b.an||0)-(a.an||0)}),'an',60,function(v){return v+'mg'},'記載なし');
+bars('c-p',P.filter(function(p){return p.dn!=null}).sort(function(a,b){return a.dn-b.dn}).concat(P.filter(function(p){return p.dn==null})),'dn',200,function(v){return '約'+v+'円'},'確認中');
+var FQ=[
+ ['このサイトは、中立ですか。','中立ではありません。運営しているのは「わたしのカシス」の販売事業者（株式会社Univein）で、比較対象に自社商品を含み、最後におすすめするのも自社商品です。そのため、各商品の内容は公式ページの記載をそのまま表に並べ、自社商品が上位でない軸（ルテインの量・価格など）も、結論の中に書いています。'],
+ ['なぜ、ルテインにカシスアントシアニンを足すことをおすすめするのですか。','理由は、「量を数字で比べられる」「ブルーベリーとはアントシアニンの種類が違う」「ルテインと組み合わせた商品がすでにある」「産地を選べる」「運営者がカシスを選んだ経緯がある」の5つです。ブルーベリーを含む商品より優れている、という意味ではありません。詳しくは「なぜカシスアントシアニンをおすすめするのか」に書いています。'],
+ ['ブルーベリーのサプリは、カシスのサプリより劣るのですか。','そうは言えません。カシスとビルベリーでは、含まれるアントシアニンの種類の組み合わせが異なる、という違いがあるだけで、優劣を比べたものではありません。このページでも、ビルベリー系の商品は、公式ページの内容のまま表に載せています。'],
+ ['「カシス配合」と書いてあれば、どれも同じですか。','同じではありません。「カシスエキス300mg」のような表示は、カシスエキスの量で、アントシアニンの量とは別です。このページでは、アントシアニンの量（mg）が書かれている商品はその数字で、書かれていない商品は「記載なし」として並べています。'],
+ ['表の「記載なし」「確認中」は何ですか。','「記載なし」は、公式ページ（または販売ページ）の本文で、その項目を確認できなかったという意味です。使っていないこと、行っていないことの証明ではありません。「確認中」は、まだ確認が取れていない項目で、推測では埋めていません。'],
+ ['リポソームルテインとは何ですか。','わたしのカシスのルテインに使っている原料の名前です。表の「ルテインの届け方」の行は、原料の形が公式ページに書かれているかどうかを並べたもので、形の違いによる優劣を示すものではありません。万寿 Cassis Premier も、リポソームルテインを配合していると記載されています。'],
+ ['「一般食品」と「機能性表示食品」は、何が違いますか。','機能性表示食品は、事業者が機能性の根拠を消費者庁に届け出た食品です。一般食品は、その届出がない食品です。わたしのカシスは一般食品で、届出はしていません。そのため、このページでは、成分の量・産地の記載・価格・購入条件といった事実だけを比べています。'],
+ ['「1日あたり」の金額は、どう計算していますか。','通常価格（税込）を日数で割った金額です。20日分の商品は30日分に換算してから30で割り、ロートV5は62粒（約2か月分）の価格を62で割っています。定期やキャンペーンの価格は含めず、参考の行に別に書いています。PURELABは2026年10月21日時点の価格です。'],
+ ['なぜ「初月は2粒」なのですか。','初回のお届けは2箱で、初月は1日2粒が目安です。2か月目以降は1箱（30粒）を30日ごとにお届けし、1日1粒が目安です。このページの「1日1粒」は、2か月目以降の継続時の目安です。'],
+ ['返金と解約は、同じ手続きですか。','別の手続きです。返金は初回分のみで、到着後30日以内にメール（info@l-o-e.jp）でお申し込みください。解約・スキップ・変更は、次回発送予定日の7日前までにマイページから行います。返金のお申し込みだけでは、定期は止まりません。']
+];
+document.getElementById('faqlist').innerHTML=FQ.map(function(f,i){return '<div class="q"><button aria-expanded="false" aria-controls="a'+i+'">'+f[0]+'</button><div class="ans" id="a'+i+'" hidden>'+f[1]+'</div></div>'}).join('');
+document.querySelectorAll('#faqlist .q button').forEach(function(b){b.onclick=function(){var a=document.getElementById(b.getAttribute('aria-controls')),o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));a.hidden=o}});
+</script>
+</body>
+</html>
